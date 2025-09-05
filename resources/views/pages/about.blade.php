@@ -19,7 +19,7 @@
 
 
         <div class="w-full md:w-3/4 lg:w-3/4 rounded-lg shadow-lg p-6 z-20">
-            <div class="bg-white w-full rounded-lg shadow-lg p-6 text-gray-700">
+            <div class="bg-white w-full rounded-lg shadow-lg p-6 text-gray-700 no-tailwind">
                 <div class="">
                     {!! $page->content !!}
                 </div>
