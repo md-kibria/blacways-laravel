@@ -72,7 +72,7 @@
         <div class="mx-auto">
 
             @if (count($posts) === 0)
-                <div class="flex items-center justify-center w-full min-h-[40vh]">
+                <div class="flex items-center justify-center w-full min-h-[20vh]">
                     <span class="text-slate-500">No items found!</span>
                 </div>
             @endif

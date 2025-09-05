@@ -314,7 +314,7 @@
 
                             <li>
                                 <a class="my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4"
-                                    href="{{ route('admin.pages', 'news') }}">
+                                    href="{{ route('admin.pages', 'events') }}">
                                     <p class="text-2xl"><ion-icon class="my-auto block"
                                             name="at-outline"></ion-icon></p>
                                     <p>Events Page</p>
