@@ -25,7 +25,8 @@
             </a>
         </div>
 
-        <img class="h-[350px] mb-5 mx-auto" src="{{ asset('/storage/' . $header->image) }}" alt="">
+        {{-- <img class="h-[350px] mb-5 mx-auto" src="{{ asset('/storage/' . $header->image) }}" alt=""> --}}
+        <img class="h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[600px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tr-[100px] sm:rounded-bl-[100px]" src="{{ asset('/storage/' . $header->image) }}" alt="">
 
         <!-- <img class="w-[120px] absolute top-40 left-55" src="./img/Cloud-element.svg" alt="">
                 <img class="w-[100px] absolute top-60 right-55" src="./img/Cloud-element.svg" alt="">
@@ -64,7 +65,7 @@
 
     <!-- About Section -->
     <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-10 px-10 py-20 bg-gray-100">
-        <img class="md:w-[300px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[500px] xl:h-[600px] object-cover rounded-tr-[50px] rounded-bl-[50px]"
+        <img class="md:w-[300px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[500px] xl:h-[600px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tl-[50px] sm:rounded-br-[50px]"
             src="{{ asset($about->image ? '/storage/' . $about->image : '/img/default.png') }}" alt="">
         <div class="text-center md:text-left">
             <h2 class="text-4xl font-bold mb-4 text-slate-600">About Us</h2>
