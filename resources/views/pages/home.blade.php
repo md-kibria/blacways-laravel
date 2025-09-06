@@ -59,7 +59,7 @@
             <p class="mb-7 text-xl text-gray-500">{{ $header->sub_title }}</p>
 
             <!-- SignUp Button -->
-            <a class="group relative inline-block focus:outline-hidden mx-auto lg:mx-0" href="/signup">
+            <a class="group relative inline-block focus:outline-hidden mx-auto lg:mx-0" href="/about">
                 <span
                     class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-green-200 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
 
