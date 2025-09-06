@@ -1,4 +1,4 @@
-<nav class="fixed top-0 left-0 w-full bg-[#5cf802] backdrop-blur-md z-50 flex items-center justify-between px-6 md:px-10 shadow h-20">
+<nav class="fixed top-0 left-0 w-full bg-green-300 backdrop-blur-md z-50 flex items-center justify-between px-6 md:px-10 shadow h-20">
     {{-- bg-[#adf802] --}}
     {{-- Logo --}}
     <a href="{{ route('home') }}">
