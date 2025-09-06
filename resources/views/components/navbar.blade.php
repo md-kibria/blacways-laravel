@@ -1,8 +1,9 @@
-<nav class="fixed top-0 left-0 w-full bg-amber-300 md:bg-transparent backdrop-blur-md z-50 flex items-center justify-between px-6 md:px-10 py-5 shadow">
+<nav class="fixed top-0 left-0 w-full bg-[#5cf802] backdrop-blur-md z-50 flex items-center justify-between px-6 md:px-10 shadow h-20">
+    {{-- bg-[#adf802] --}}
     {{-- Logo --}}
     <a href="{{ route('home') }}">
         @if ($logo)
-            <img src="{{ $logo }}" alt="" class="h-[50px] w-auto">
+            <img src="{{ $logo }}" alt="" class="h-[60px] w-auto">
         @else
             <h1 class="text-2xl font-bold text-slate-600">Logo</h1>
         @endif
@@ -57,6 +58,8 @@
         @endauth
     </ul>
 </nav>
+
+<div class="h-20"></div>
 
 {{-- Script to toggle menu --}}
 <script>

@@ -19,7 +19,10 @@
             @foreach ($news as $item)
                 <article
                     class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
-                    <img alt="" src="{{ asset('/storage/' . $item->thumbnail) }}" class="h-56 w-full object-cover" />
+                    <div class="h-56 w-full overflow-hidden">
+                        <img src="{{ asset('/storage/' . $item->thumbnail) }}" alt=""
+                            class="h-56 w-full object-cover transform transition-transform duration-500 hover:scale-110" />
+                    </div>
 
                     <div class="p-4 sm:p-6">
                         <time datetime="{{ $item->datetime }}" class="block text-xs text-gray-500">

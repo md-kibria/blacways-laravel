@@ -4,42 +4,103 @@
 @section('description', 'Home page description')
 
 @section('content')
+    <!-- Slider section -->
+    <div class="swiper mySwiper min-h-[400px] lg:min-h-[500px]">
+        <div class="swiper-wrapper">
+            @foreach ($slides as $slide)
+                <div class="swiper-slide"
+                    style="background-image: url('{{ asset('storage/' . $slide->image) }}'); background-size: cover; background-position: center; height: 500px; position: relative;">
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white bg-black/40 p-5 rounded-lg w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 slide-content">
+                        <div class="slide-content">
+
+                            <h2 class="text-4xl sm:text-5xl font-bold mb-4">{{ $slide->title }}</h2>
+                            <p style="font-size: 1rem; margin-bottom: 15px;">{{ $slide->description }}</p>
+
+                            <a href="{{ $slide->link ?? '#' }}"
+                                class="inline-block rounded-sm bg-green-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:rotate-2 focus:ring-3 focus:outline-hidden">
+                                {{ $slide->button_text ?? 'Learn More' }}
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <!-- Pagination & Navigation -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            autoplay: {
+                delay: 4000
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+        });
+    </script>
     <!-- Hero section -->
     <div
-        class="container mx-auto text-center flex flex-col lg:flex-row items-center justify-between min-h-screen py-32 lg:py-0 px-5">
+        class="container mx-auto text-center flex flex-col-reverse lg:flex-row items-center justify-between min-h-screen py-5 lg:py-0 px-5">
         <!-- Main text group -->
-        <div class="flex flex-col items-start justify-center h-full relative pb-10 text-center lg:text-left max-w-[650px]">
+        <div
+            class="flex flex-col items-start justify-center h-full relative pt-10 md:pb-10 text-center lg:text-left max-w-[650px]">
             <!-- Hero Header -->
-            <h1 class="text-6xl lg:text-7xl font-bold mb-4 text-slate-500">{{ $header->title }}</h1>
-            <p class="mb-7 text-xl text-gray-400">{{ $header->sub_title }}</p>
+            <h1 class="text-6xl lg:text-7xl font-bold mb-4 text-slate-600">{{ $header->title }}</h1>
+            <p class="mb-7 text-xl text-gray-500">{{ $header->sub_title }}</p>
 
             <!-- SignUp Button -->
             <a class="group relative inline-block focus:outline-hidden mx-auto lg:mx-0" href="/signup">
                 <span
-                    class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-blue-200 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                    class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-green-200 transition-transform group-hover:translate-x-0 group-hover:translate-y-0"></span>
 
                 <span
                     class="relative inline-block border-2 border-gray-600 border-current px-8 py-3 text-sm font-bold tracking-widest text-gray-800 uppercase">
-                    SignUp Now
+                    Learn More
                 </span>
             </a>
         </div>
 
         {{-- <img class="h-[350px] mb-5 mx-auto" src="{{ asset('/storage/' . $header->image) }}" alt=""> --}}
-        <img class="h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[600px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tr-[100px] sm:rounded-bl-[100px]" src="{{ asset('/storage/' . $header->image) }}" alt="">
+        <img class="h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[600px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tr-[100px] sm:rounded-bl-[100px]"
+            src="{{ asset('/storage/' . $header->image) }}" alt="">
 
         <!-- <img class="w-[120px] absolute top-40 left-55" src="./img/Cloud-element.svg" alt="">
-                <img class="w-[100px] absolute top-60 right-55" src="./img/Cloud-element.svg" alt="">
-                <img class="w-[80px] absolute top-110 left-105" src="./img/Cloud-element.svg" alt="">
-                <img class="w-[60px] absolute top-130 right-105" src="./img/Cloud-element.svg" alt=""> -->
+                                                                                    <img class="w-[100px] absolute top-60 right-55" src="./img/Cloud-element.svg" alt="">
+                                                                                    <img class="w-[80px] absolute top-110 left-105" src="./img/Cloud-element.svg" alt="">
+                                                                                    <img class="w-[60px] absolute top-130 right-105" src="./img/Cloud-element.svg" alt=""> -->
 
         <!-- <img class="mt-8 w-[120%] absolute bottom-0 left-0" src="./waves/wave (2).svg" alt=""> -->
     </div>
 
+    <!-- 17 Local Governments of Abia State -->
+
+    <div class="bg-[#62BA70]">
+        <div class="container mx-auto text-white py-24">
+            <h2 class="text-4xl font-bold mb-2 text-center">17 Local Governments of Abia State</h2>
+            <p class="text-center w-[80%] md:w-[60%] xl:w-[50%] mx-auto mb-8">Aba North, Aba South, Arochukwu, Bende, Ikwuano, Isiala-Ngwa North, Isiala-Ngwa South, Isukwuato, Obi Ngwa, Ukwa East, Ukwa West, Ohafia, Osisioma, Ugwunagbo, Umuahia North, Umuahia South, Umu-Nneochi!
+</p>
+        </div>
+    </div>
 
     <!-- Feature section -->
-    <div class="flex flex-col md:flex-row px-10 lg:px-20 xl:px-30 gap-5 py-30">
-        <div class="flex flex-col shadow-lg hover:shadow-xl cursor-pointer p-4 rounded-md bg-blue-50">
+    {{-- <div class="flex flex-col md:flex-row px-10 lg:px-20 xl:px-30 gap-5 py-30"> --}}
+    <div class="grid grid-cols-1 md:grid-cols-3 px-10 lg:px-20 xl:px-60 gap-5 py-30">
+
+        <x-feature :image="$features_1->image" :title="$features_1->title" :sub_title="$features_1->sub_title" />
+        <x-feature :image="$features_2->image" :title="$features_2->title" :sub_title="$features_2->sub_title" />
+        <x-feature :image="$features_3->image" :title="$features_3->title" :sub_title="$features_3->sub_title" />
+
+        {{-- <div class="flex flex-col shadow-lg hover:shadow-xl cursor-pointer p-4 rounded-md bg-blue-50">
             <img width="50" height="50"
                 src="{{ asset($features_1->image ? '/storage/' . $features_1->image : '/img/default.png') }}"
                 alt="" />
@@ -59,12 +120,12 @@
                 alt="" />
             <h2 class="text-xl font-semibold text-gray-700">{{ $features_3->title }}</h2>
             <p class="text-gray-500">{{ $features_3->sub_title }}</p>
-        </div>
+        </div> --}}
 
     </div>
 
     <!-- About Section -->
-    <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-10 px-10 py-20 bg-gray-100">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-10 px-10 py-20 bg-green-100">
         <img class="md:w-[300px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[500px] xl:h-[600px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tl-[50px] sm:rounded-br-[50px]"
             src="{{ asset($about->image ? '/storage/' . $about->image : '/img/default.png') }}" alt="">
         <div class="text-center md:text-left">
@@ -73,7 +134,7 @@
                 {{ $about->sub_title }}
             </p>
 
-            <a class="inline-flex items-center gap-2 rounded-sm border border-blue-400 bg-blue-400 px-8 py-3 text-white hover:bg-transparent hover:text-blue-400 focus:ring-3 focus:outline-hidden transition duration-300"
+            <a class="inline-flex items-center gap-2 rounded-sm border border-green-400 bg-green-400 px-8 py-3 text-white hover:bg-transparent hover:text-green-400 focus:ring-3 focus:outline-hidden transition duration-300"
                 href="/about">
                 <span class="text-sm font-medium"> Learn More </span>
 
@@ -95,8 +156,10 @@
                 @foreach ($news as $item)
                     <article
                         class="overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md hover:shadow-lg transition-shadow duration-300">
-                        <img alt="" src="{{ asset('/storage/' . $item->thumbnail) }}"
-                            class="h-56 w-full object-cover" />
+                        <div class="h-56 w-full overflow-hidden">
+                            <img src="{{ asset('/storage/' . $item->thumbnail) }}" alt=""
+                                class="h-56 w-full object-cover transform transition-transform duration-500 hover:scale-110" />
+                        </div>
 
                         <div class="p-4 sm:p-6">
                             <time datetime="{{ $item->datetime }}" class="block text-xs text-gray-500">
@@ -130,7 +193,7 @@
 
     <!-- Events Section -->
     @if (count($events) !== 0)
-        <div class="px-5 md:px-15 xl:px-25 py-20 bg-slate-100">
+        <div class="px-5 md:px-15 xl:px-25 py-20 bg-green-100">
             <h2 class="text-4xl font-bold mb-2 text-slate-600 text-center">Latest Events</h2>
             <p class="text-slate-400 text-center w-[80%] md:w-[60%] xl:w-[50%] mx-auto mb-8">{{ $events_desc }}</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-3">
@@ -146,15 +209,16 @@
                             </time>
                         </div>
 
-                        <div class="hidden sm:block sm:basis-56">
-                            <img alt=""
-                                src="{{ $item->thumbnail ? asset('/storage/'.$item->thumbnail) : '/img/default.png' }}"
-                                class="aspect-square h-full w-full object-cover" />
+                        <div class="hidden sm:block sm:basis-56 overflow-hidden">
+                            <img src="{{ $item->thumbnail ? asset('/storage/' . $item->thumbnail) : '/img/default.png' }}"
+                                alt=""
+                                class="aspect-square h-full w-full object-cover transform transition-transform duration-500 hover:scale-110" />
                         </div>
+
 
                         <div class="flex flex-1 flex-col justify-between">
                             <div class="border-s border-gray-900/10 p-4 sm:border-l-transparent sm:p-6">
-                                <a href="/events/{{$item->id}}">
+                                <a href="/events/{{ $item->id }}">
                                     <h3 class="font-bold text-gray-900 uppercase">
                                         {{ $item->title }}
                                     </h3>
@@ -166,8 +230,8 @@
                             </div>
 
                             <div class="sm:flex sm:items-end sm:justify-end">
-                                <a href="/events/{{$item->id}}"
-                                    class="block bg-blue-300 px-5 py-3 text-center text-xs font-bold text-gray-900 uppercase transition hover:bg-blue-400">
+                                <a href="/events/{{ $item->id }}"
+                                    class="block bg-green-300 px-5 py-3 text-center text-xs font-bold text-gray-900 uppercase transition hover:bg-green-400">
                                     Read More
                                 </a>
                             </div>
@@ -202,7 +266,7 @@
     </div>
 
     <!-- Contact Section -->
-    <div class="w-full min-h-screen flex items-center justify-center rounded-lg p-6 z-20 bg-gray-100">
+    <div class="w-full min-h-screen flex items-center justify-center rounded-lg p-6 z-20 bg-green-100">
         <div class="bg-white md:w-3/4 lg:w-3/4 mx-auto rounded-lg shadow-lg p-6 text-gray-600">
             <div class="card-body py-5">
                 <p class="w-1/2 text-center mx-auto"></p>
@@ -238,7 +302,7 @@
                             </div>
                             <div>
                                 <button type="submit"
-                                    class="w-full bg-blue-500 hover:bg-blue-400 text-white py-2 rounded cursor-pointer transition">Submit</button>
+                                    class="w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded cursor-pointer transition">Submit</button>
                             </div>
                         </div>
                     </form>

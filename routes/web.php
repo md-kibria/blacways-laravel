@@ -108,6 +108,10 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
     Route::get('/home-page', [AdminPageController::class, 'homePage'])->name('admin.home');
     Route::post('/home-page', [AdminPageController::class, 'homePageUpdate'])->name('admin.home.update');
+    Route::get('/home-page/sliders', [AdminPageController::class, 'homePageSliders'])->name('admin.home.sliders');
+    Route::post('/home-page/sliders', [AdminPageController::class, 'slideStore'])->name('admin.home.sliders.store');
+    Route::put('/home-page/sliders/{slide}', [AdminPageController::class, 'slideUpdate'])->name('admin.home.sliders.update');
+    Route::get('/home-page/sliders/destroy/{slide}', [AdminPageController::class, 'slideDestroy'])->name('admin.home.sliders.destroy');
 
     Route::get('/about-page', [AdminPageController::class, 'aboutPage'])->name('admin.about');
     Route::post('/page-update', [AdminPageController::class, 'aboutPageUpdate'])->name('admin.page.update');
