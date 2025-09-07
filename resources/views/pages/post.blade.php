@@ -4,7 +4,7 @@
 @section('description', $forum->content)
 
 @section('content')
-    <section class="container mx-auto min-h-screen relative py-28 flex flex-col justify-center items-center">
+    <section class="container mx-auto min-h-screen relative py-15 flex flex-col justify-center items-center">
 
 
         <article class="rounded-xl border-2 border-gray-100 bg-white shadow-lg max-w-4xl pb-4 sm:pb-6 lg:pb-8">

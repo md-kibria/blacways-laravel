@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Executive;
 use App\Models\Gallery;
 use App\Models\HomepageContent;
 use App\Models\Info;
@@ -23,6 +24,7 @@ class PageController extends Controller
         $features_2 = HomepageContent::where('section', 'features_2')->first();
         $features_3 = HomepageContent::where('section', 'features_3')->first();
         $about = HomepageContent::where('section', 'about')->first();
+        $mission = HomepageContent::where('section', 'mission')->first();
         $donation = HomepageContent::where('section', 'donation')->first();
         $slides = Slide::all();
         $news_desc = Page::where('slug', 'news')->select('description')->first()->description;
@@ -31,7 +33,7 @@ class PageController extends Controller
         $events_desc = Page::where('slug', 'events')->select('description')->first()->description;
         $events = Event::orderBy('id', 'desc')->limit(2)->get();
 
-        return view('pages.home', compact('header', 'info', 'features_1', 'features_2', 'features_3', 'about', 'donation', 'news_desc', 'news', 'events_desc', 'events', 'slides'));
+        return view('pages.home', compact('header', 'info', 'features_1', 'features_2', 'features_3', 'about', 'mission', 'donation', 'news_desc', 'news', 'events_desc', 'events', 'slides'));
     }
 
     public function about()
@@ -39,6 +41,20 @@ class PageController extends Controller
         $page = Page::where('slug', 'about')->first();
 
         return view('pages.about', compact('page'));
+    }
+    
+    public function mission()
+    {
+        $page = Page::where('slug', 'mission')->first();
+
+        return view('pages.mission', compact('page'));
+    }
+    
+    public function features($slug)
+    {
+        $page = Page::where('slug', $slug)->first();
+
+        return view('pages.features', compact('page'));
     }
 
     public function contact()
@@ -60,6 +76,14 @@ class PageController extends Controller
     public function newsItem(News $news)
     {
         return view('pages.newsItem', compact('news'));
+    }
+
+    public function executives()
+    {
+        $executives = Executive::orderBy('id', 'desc')->paginate(12);
+        $page = Page::where('slug', 'executives')->first();
+
+        return view('pages.executives', compact('executives', 'page'));
     }
 
     public function events()

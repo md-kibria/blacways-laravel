@@ -185,13 +185,16 @@ class AdminPageController extends Controller
     public function settingUpdate(Request $request)
     {
         $request->validate([
-            'title' => 'required|string',
+            'title' => 'nullable|string',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'favicon' => 'nullable|image|mimes:jpeg,png,jpg,gif,ico|max:2048',
             'description' => 'nullable|string',
             'email' => 'nullable|email',
             'phone' => 'nullable|string',
             'address' => 'nullable|string',
+            'ad' => 'nullable|string',
+            'ad_visibility' => 'nullable|string',
+            'nl_vid' => 'nullable|string',
         ]);
 
         $siteInfo = Info::firstOrNew(['id' => 1]);
@@ -211,11 +214,14 @@ class AdminPageController extends Controller
             $siteInfo->favicon = $request->file('favicon')->store('favicons', 'public');
         }
 
-        $siteInfo->title = $request->title;
-        $siteInfo->description = $request->description;
-        $siteInfo->email = $request->email;
-        $siteInfo->phone = $request->phone;
-        $siteInfo->address = $request->address;
+        $siteInfo->title = $request->title ?? $siteInfo->title;
+        $siteInfo->description = $request->description ?? $siteInfo->description;
+        $siteInfo->email = $request->email ?? $siteInfo->email;
+        $siteInfo->phone = $request->phone ?? $siteInfo->phone;
+        $siteInfo->address = $request->address ?? $siteInfo->address;
+        $siteInfo->ad = $request->ad ?? $siteInfo->ad;
+        $siteInfo->ad_visibility = $request->has('ad_visibility') ? true : false;
+        $siteInfo->nl_vid = $request->nl_vid ?? $siteInfo->nl_vid;
 
         $siteInfo->save();
 

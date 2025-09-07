@@ -6,7 +6,7 @@
 @section('content')
     <section class="py-23 min-h-screen relative z-30">
         {{-- headr --}}
-        <div class="h-[500px] w-full bg-blue-200 flex flex-col items-center justify-center absolute -z-10 top-26 right-0 left-0"
+        <div class="h-[500px] w-full bg-blue-200 flex flex-col items-center justify-center absolute -z-10 top-0 right-0 left-0"
             style="background-image: url('{{ $event->thumbnail ? asset('/storage/'.$event->thumbnail) : asset('img/event-bg.jpg')  }}'); background-repeat: no-repeat; background-size: cover;">
             <div class="absolute inset-0 bg-black opacity-50"></div>
 
@@ -36,7 +36,7 @@
             </div>
         </div>
         {{-- Description --}}
-        <div class="container mx-auto shadow-xl bg-blue-100 z-50 mt-96 rounded-md">
+        <div class="container mx-auto shadow-xl bg-blue-100 z-50 mt-72 rounded-md">
             {{-- <div class="bg-blue-100 rounded-md -top-32 h-full w-full absolute"> --}}
                 {{-- <div class="h-20 bg-blue-400 rounded-t-md flex items-center justify-around"> --}}
                 <div class=" bg-blue-400 rounded-t-md grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">

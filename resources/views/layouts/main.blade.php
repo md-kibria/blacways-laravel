@@ -28,6 +28,8 @@
 
     <x-flash-message />
 
+    <x-popup-ad />
+
     {{-- <a class="fixed left-0 top-30 translate-y-50 -rotate-90 my-5 w-fit group inline-block rounded-md bg-gradient-to-r from-[#71A129] to-[#588B22] p-[2px] hover:text-[#588B22] text-white focus:ring-3 focus:outline-hidden transition duration-300 mx-auto md:mx-0"
         id="donate-btn" href="{{ route('donation') }}">
         <span class="block rounded-full group-hover:bg-white px-8 py-3 text-sm font-medium bg-transparent">
@@ -35,7 +37,7 @@
         </span>
     </a> --}}
 
-    <a href="" class="fixed -left-[50px] top-30 translate-y-50 -rotate-90 flex items-center justify-center text-xl h-[40px] w-[140px] bg-gradient-to-r from-[#71A129] to-[#588B22] font-bold text-white uppercase rounded-b-xl">
+    <a href="" class="fixed -left-[50px] top-30 translate-y-50 -rotate-90 flex items-center justify-center text-xl h-[40px] w-[140px] bg-gradient-to-r from-[#71A129] to-[#588B22] font-bold text-white uppercase rounded-b-xl z-40">
         Donate Us
     </a>
 

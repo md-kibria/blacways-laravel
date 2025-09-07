@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
+            $table->longText('ad')->nullable();
+            $table->boolean('ad_visibility')->nullable();
+            $table->text('nl_vid')->nullable();
             $table->timestamps();
         });
     }

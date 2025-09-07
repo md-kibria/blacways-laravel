@@ -1,6 +1,6 @@
-@props(['image' => null, 'title' => null, 'sub_title' => null])
+@props(['id' => null, 'image' => null, 'title' => null, 'sub_title' => null])
 
-<a href="#" class="group relative block h-64 sm:h-80 lg:h-96">
+<span class="group relative block h-64 sm:h-80 lg:h-96">
     <span class="absolute inset-0 border-2 border-dashed border-green-500"></span>
 
     <div
@@ -20,7 +20,7 @@
                 {{ $sub_title }}
             </p>
 
-            <p class="mt-8 font-bold text-green-400">Read more</p>
+            <a href="{{route('features', $id)}}" class="mt-8 font-bold text-green-400">Read more</a>
         </div>
     </div>
-</a>
+</span>

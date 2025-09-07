@@ -4,7 +4,7 @@
 @section('description', $news->content)
 
 @section('content')
-    <section class="container mx-auto min-h-screen relative py-28 flex flex-col justify-center items-center">
+    <section class="container mx-auto min-h-screen relative py-15 flex flex-col justify-center items-center">
 
         {{-- <div class="absolute inset-0"
             style="background: conic-gradient(from 224.42deg at 50% 50%, #150C2F -45.35deg, rgba(81, 55, 108, 0.954484) 22.93deg, #F1C180 150.84deg, #1F1F1F 159.84deg, #EEB36C 209.65deg, #084587 271.22deg, #150C2F 314.65deg, rgba(81, 55, 108, 0.954484) 382.93deg); filter: blur(70px); z-index: -1;">

@@ -4,9 +4,9 @@
 @section('description', $page->description)
 
 @section('content')
-<section class="min-h-screen relative py-32 flex flex-col items-center about-page">
+<section class="min-h-screen relative py-15 flex flex-col items-center about-page">
 
-    <div class="h-[450px] w-[calc(100%+100px)] bg-blue-400 absolute -top-20 -left-10 z-10 flex flex-col items-center justify-center rotate-[-5deg]">
+    <div class="h-[450px] w-[calc(100%+100px)] bg-slate-400 absolute -top-20 -left-10 z-10 flex flex-col items-center justify-center rotate-[-5deg]">
     </div>
     
     <div class="flex flex-col items-center z-20 pt-5 pb-7">

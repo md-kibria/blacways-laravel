@@ -17,7 +17,9 @@
                     {{-- <span class="bg-yellow-500 p-2 px-3 mx-1 rounded-md">
                   Edit
                 </span> --}}
-                    <button class="rounded shadow-sm sm:text-sm border border-gray-600 bg-blue-300 hover:bg-blue-400 text-slate-900 hover:text-white cursor-pointer py-2 px-3" type="submit">
+                    <button
+                        class="rounded shadow-sm sm:text-sm border border-gray-600 bg-blue-300 hover:bg-blue-400 text-slate-900 hover:text-white cursor-pointer py-2 px-3"
+                        type="submit">
                         Update
                     </button>
                 </div>
@@ -30,7 +32,8 @@
                         <label for="title" class="font-light my-2 text-slate-100">Title</label>
                         <input
                             class="p-2 px-3 rounded-md bg-transparent ring-1 @error('title') ring-red-300 @else ring-slate-600 @enderror"
-                            type="text" id="title" name="title" placeholder="Your title here" value="{{ old('title') ?? $info->title }}">
+                            type="text" id="title" name="title" placeholder="Your title here"
+                            value="{{ old('title') ?? $info->title }}">
 
                         @error('title')
                             <span class="text-light text-red-300">{{ $message }}</span>
@@ -63,7 +66,8 @@
                         <label for="email" class="font-light my-2 text-slate-100">Email</label>
                         <input
                             class="p-2 px-3 rounded-md bg-transparent ring-1 @error('email') ring-red-300 @else ring-slate-600 @enderror"
-                            type="text" id="email" name="email" placeholder="Your email here" value="{{ old('email') ?? $info->email }}">
+                            type="text" id="email" name="email" placeholder="Your email here"
+                            value="{{ old('email') ?? $info->email }}">
 
                         @error('email')
                             <span class="text-light text-red-300">{{ $message }}</span>
@@ -73,7 +77,8 @@
                         <label for="phone" class="font-light my-2 text-slate-100">Phone</label>
                         <input
                             class="p-2 px-3 rounded-md bg-transparent ring-1 @error('phone') ring-red-300 @else ring-slate-600 @enderror"
-                            type="text" id="phone" name="phone" placeholder="Your phone here" value="{{ old('phone') ?? $info->phone }}">
+                            type="text" id="phone" name="phone" placeholder="Your phone here"
+                            value="{{ old('phone') ?? $info->phone }}">
 
                         @error('phone')
                             <span class="text-light text-red-300">{{ $message }}</span>
@@ -83,7 +88,8 @@
                         <label for="address" class="font-light my-2 text-slate-100">Address</label>
                         <input
                             class="p-2 px-3 rounded-md bg-transparent ring-1 @error('address') ring-red-300 @else ring-slate-600 @enderror"
-                            type="text" id="address" name="address" placeholder="Your address here" value="{{ old('address') ?? $info->address }}">
+                            type="text" id="address" name="address" placeholder="Your address here"
+                            value="{{ old('address') ?? $info->address }}">
 
                         @error('address')
                             <span class="text-light text-red-300">{{ $message }}</span>
@@ -93,13 +99,61 @@
                 </div>
                 <div class="felx">
                     <label for="title" class="block font-light my-2 text-slate-100">Preview Logo</label>
-                    <img class="ring-1 rounded-lg ring-slate-600 w-full" src="{{asset('/storage/' . $info->logo)}}" />
+                    <img class="ring-1 rounded-lg ring-slate-600 w-full" src="{{ asset('/storage/' . $info->logo) }}" />
                 </div>
             </div>
         </form>
-        
-        <form class="my-10 p-4 rounded-md border border-slate-700" action="{{ route('admin.settings.media.update') }}" method="POST"
-            enctype="multipart/form-data">
+
+        <form class="my-10 p-4 rounded-md border border-slate-700" action="{{ route('admin.settings.update') }}"
+            method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
+            <div class="flex items-center justify-between mb-3">
+                <h2 class="text-3xl">Popup Ad</h2>
+                <div>
+                    {{-- <span class="bg-yellow-500 p-2 px-3 mx-1 rounded-md">
+                  Edit
+                </span> --}}
+                    <button
+                        class="rounded shadow-sm sm:text-sm border border-gray-600 bg-blue-300 hover:bg-blue-400 text-slate-900 hover:text-white cursor-pointer py-2 px-3"
+                        type="submit">
+                        Update
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div class="col-span-3">
+
+                    <div class="flex flex-col my-1">
+                        <label for="ad" class="font-light my-2 text-slate-100 capitalize">Description</label>
+                        <textarea class="p-2 px-3 rounded-md bg-transparent ring-1 @error('ad') ring-red-300 @else ring-slate-600 @enderror"
+                            type="text" id="ad" name="ad" placeholder="Write description" rows="4">{{ old('ad') ?? $info->ad }}</textarea>
+
+                        @error('ad')
+                            <span class="text-light text-red-300">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    <div class="flex flex-col my-1">
+                        <label for="ad_visibility" class="font-light my-2 text-slate-100 capitalize">Visibility</label>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="ad_visibility" name="ad_visibility"
+                                class="toggle-checkbox h-5 w-10 rounded-full bg-slate-600 checked:bg-blue-400 transition duration-200"
+                                {{ old('ad_visibility', $info->ad_visibility ?? false) ? 'checked' : '' }}>
+                            <span class="ml-3 text-slate-200">Show popup ad</span>
+                        </div>
+                        @error('ad_visibility')
+                            <span class="text-light text-red-300">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <form class="my-10 p-4 rounded-md border border-slate-700" action="{{ route('admin.settings.media.update') }}"
+            method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <div class="flex items-center justify-between mb-3">
@@ -108,7 +162,9 @@
                     {{-- <span class="bg-yellow-500 p-2 px-3 mx-1 rounded-md">
                   Edit
                 </span> --}}
-                    <button class="rounded shadow-sm sm:text-sm border border-gray-600 bg-blue-300 hover:bg-blue-400 text-slate-900 hover:text-white cursor-pointer py-2 px-3" type="submit">
+                    <button
+                        class="rounded shadow-sm sm:text-sm border border-gray-600 bg-blue-300 hover:bg-blue-400 text-slate-900 hover:text-white cursor-pointer py-2 px-3"
+                        type="submit">
                         Update
                     </button>
                 </div>
@@ -118,17 +174,19 @@
                 <div class="col-span-3">
 
                     @foreach ($medias as $media)
-                        
-                    <div class="flex flex-col my-1">
-                        <label for="{{$media->name}}" class="font-light my-2 text-slate-100 capitalize">{{$media->name}}</label>
-                        <input
-                        class="p-2 px-3 rounded-md bg-transparent ring-1 @error($media->name) ring-red-300 @else ring-slate-600 @enderror"
-                        type="text" id="{{$media->name}}" name="{{$media->name}}" placeholder="Your {{$media->name}} url here" value="{{ old($media->name) ?? $media->url }}">
-                        
-                        @error($media->name)
-                        <span class="text-light text-red-300">{{ $message }}</span>
-                        @enderror
-                    </div>
+                        <div class="flex flex-col my-1">
+                            <label for="{{ $media->name }}"
+                                class="font-light my-2 text-slate-100 capitalize">{{ $media->name }}</label>
+                            <input
+                                class="p-2 px-3 rounded-md bg-transparent ring-1 @error($media->name) ring-red-300 @else ring-slate-600 @enderror"
+                                type="text" id="{{ $media->name }}" name="{{ $media->name }}"
+                                placeholder="Your {{ $media->name }} url here"
+                                value="{{ old($media->name) ?? $media->url }}">
+
+                            @error($media->name)
+                                <span class="text-light text-red-300">{{ $message }}</span>
+                            @enderror
+                        </div>
                     @endforeach
 
                 </div>
@@ -136,4 +194,5 @@
         </form>
     </div>
 
+    <x-editor-script id="ad" />
 @endsection

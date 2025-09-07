@@ -4,7 +4,7 @@
 @section('description', strip_tags($page->description))
 
 @section('content')
-    <div class="px-5 md:px-25 py-30">
+    <div class="px-5 md:px-25 py-15">
         <h2 class="text-4xl font-bold mb-2 text-slate-600 text-center">{{ $page->name }}</h2>
         <p class="text-slate-400 text-center w-[80%] md:w-[60%] xl:w-[50%] mx-auto mb-8">{{ $page->description }}</p>
 

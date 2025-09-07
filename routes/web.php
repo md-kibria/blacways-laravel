@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ExecutiveController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\MemberController;
@@ -18,9 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/mission', [PageController::class, 'mission'])->name('mission');
+Route::get('/features/{slug}', [PageController::class, 'features'])->name('features');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/news/{news}', [PageController::class, 'newsItem'])->name('news.show');
+Route::get('/executives', [PageController::class, 'executives'])->name('executives');
 
 Route::get('/donations', [DonationController::class, 'index'])->name('donation');
 Route::post('/donations/create', [DonationController::class, 'create'])->name('donations.create');
@@ -100,6 +104,17 @@ Route::prefix('admin')->middleware('admin')->group(function () {
             'create' => 'admin.gallery.create',
             'store' => 'admin.gallery.store',
             'destroy' => 'admin.gallery.destroy',
+        ]);
+
+    Route::resource('/executives', ExecutiveController::class)
+        ->except(['show'])
+        ->names([
+            'index' => 'admin.executives.index',
+            'create' => 'admin.executives.create',
+            'store' => 'admin.executives.store',
+            'edit' => 'admin.executives.edit',
+            'update' => 'admin.executives.update',
+            'destroy' => 'admin.executives.destroy',
         ]);
 
     Route::get('/forum-posts', [ForumController::class, 'index'])->name('admin.forum.index');

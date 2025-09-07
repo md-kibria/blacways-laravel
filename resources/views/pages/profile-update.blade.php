@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="container mx-auto min-h-screen py-30 px-2 flex flex-col justify-center items-center">
+    <div class="container mx-auto min-h-screen py-15 px-2 flex flex-col justify-center items-center">
 
 
         <div class="w-full max-w-sm lg:max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-6 md:p-8">

@@ -346,10 +346,63 @@
                                     <p>Contact Page</p>
                                 </a>
                             </li>
+                            
+                            <li>
+                                <a class="my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4"
+                                    href="{{ route('admin.pages', 'mission') }}">
+                                    <p class="text-2xl"><ion-icon class="my-auto block"
+                                            name="at-outline"></ion-icon></p>
+                                    <p>Mission Page</p>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a class="my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4"
+                                    href="{{ route('admin.pages', 'executives') }}">
+                                    <p class="text-2xl"><ion-icon class="my-auto block"
+                                            name="at-outline"></ion-icon></p>
+                                    <p>Executives Page</p>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a class="my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4"
+                                    href="{{ route('admin.pages', 'features_1') }}">
+                                    <p class="text-2xl"><ion-icon class="my-auto block"
+                                            name="at-outline"></ion-icon></p>
+                                    <p>Features_1</p>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a class="my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4"
+                                    href="{{ route('admin.pages', 'features_2') }}">
+                                    <p class="text-2xl"><ion-icon class="my-auto block"
+                                            name="at-outline"></ion-icon></p>
+                                    <p>Features_2</p>
+                                </a>
+                            </li>
+                            
+                            <li>
+                                <a class="my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4"
+                                    href="{{ route('admin.pages', 'features_3') }}">
+                                    <p class="text-2xl"><ion-icon class="my-auto block"
+                                            name="at-outline"></ion-icon></p>
+                                    <p>Features_3</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
 
+                    <li>
+                        <a class="block my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4 @if (Route::currentRouteName() == 'admin.executives.index') bg-slate-600 text-green-300 @endif"
+                            href="{{ route('admin.executives.index') }}">
+                            <p class="text-2xl"><ion-icon class="my-auto block" name="ribbon-outline"></ion-icon>
+                            </p>
+                            <p>Executives</p>
+                        </a>
+                    </li>
                     <li>
                         <a class="block my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4 @if (Route::currentRouteName() == 'admin.members') bg-slate-600 text-green-300 @endif"
                             href="{{ route('admin.members') }}">

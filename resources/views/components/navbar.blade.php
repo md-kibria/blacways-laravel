@@ -39,6 +39,8 @@
         <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
                 href="{{ route('gallery') }}">Gallery</a></li>
         <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
+                href="{{ route('executives') }}">Executives</a></li>
+        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
                 href="{{ route('contact') }}">Contact</a></li>
         @auth
             <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"

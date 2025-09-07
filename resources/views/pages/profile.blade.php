@@ -35,7 +35,7 @@
         </div>
     </div> --}}
 
-    <div class="container mx-auto min-h-screen py-30 px-2 flex flex-col justify-center items-center">
+    <div class="container mx-auto min-h-screen py-15 px-2 flex flex-col justify-center items-center">
 
 
 

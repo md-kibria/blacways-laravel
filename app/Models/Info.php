@@ -16,6 +16,9 @@ class Info extends Model
         'description',
         'email',
         'phone',
-        'address'
+        'address',
+        'ad',
+        'ad_visibility',
+        'nl_vid'
     ];
 }
