@@ -147,7 +147,7 @@
             </p>
 
             <a class="inline-flex items-center gap-2 rounded-sm border border-green-400 bg-green-400 px-8 py-3 text-white hover:bg-transparent hover:text-green-400 focus:ring-3 focus:outline-hidden transition duration-300"
-                href="{{ route('mission') }}">
+                href="{{ route('about') }}">
                 <span class="text-sm font-medium"> Learn More </span>
 
                 <svg class="size-5 shadow-sm rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -160,12 +160,17 @@
 
     <!-- 17 Local Governments of Abia State -->
     <div class="bg-[#62BA70]">
-        <div class="container mx-auto text-white py-24">
-            <h2 class="text-4xl font-bold mb-2 text-center">17 Local Governments of Abia State</h2>
-            <p class="text-center w-[80%] md:w-[60%] xl:w-[50%] mx-auto mb-8">Aba North, Aba South, Arochukwu, Bende,
-                Ikwuano, Isiala-Ngwa North, Isiala-Ngwa South, Isukwuato, Obi Ngwa, Ukwa East, Ukwa West, Ohafia, Osisioma,
-                Ugwunagbo, Umuahia North, Umuahia South, Umu-Nneochi!
-            </p>
+        <div class="container mx-auto text-white py-24 flex flex-col md:flex-row items-center justify-center">
+
+            <img src="{{ asset('/img/map.png') }}" class="h-[300px]" alt="">
+
+            <div class="text-center md:text-left w-[80%] md:w-[60%] xl:w-[50%] ">
+                <h2 class="text-4xl font-bold mb-2 w-fit">17 Local Governments of Abia State</h2>
+                <p class="mb-8">Aba North, Aba South, Arochukwu, Bende,
+                    Ikwuano, Isiala-Ngwa North, Isiala-Ngwa South, Isukwuato, Obi Ngwa, Ukwa East, Ukwa West, Ohafia, Osisioma,
+                    Ugwunagbo, Umuahia North, Umuahia South, Umu-Nneochi!
+                </p>
+            </div>
         </div>
     </div>
 
