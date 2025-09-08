@@ -10,6 +10,10 @@
                 alt="" />
 
             <h2 class="mt-4 text-xl font-medium sm:text-2xl text-green-500">{{ $title }}</h2>
+
+            <p class="mt-4 text-sm sm:text-base text-green-400">
+                {{ $sub_title }}
+            </p>
         </div>
 
         <div

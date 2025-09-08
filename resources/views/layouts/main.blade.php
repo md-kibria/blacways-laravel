@@ -24,6 +24,8 @@
         @yield('content')
     </main>
 
+    <x-newsletter />
+
     <x-footer />
 
     <x-flash-message />
@@ -37,7 +39,7 @@
         </span>
     </a> --}}
 
-    <a href="" class="fixed -left-[50px] top-30 translate-y-50 -rotate-90 flex items-center justify-center text-xl h-[40px] w-[140px] bg-gradient-to-r from-[#71A129] to-[#588B22] font-bold text-white uppercase rounded-b-xl z-40">
+    <a href="{{ route('donation') }}" class="fixed -left-[50px] top-30 translate-y-50 -rotate-90 flex items-center justify-center text-xl h-[40px] w-[140px] bg-black font-bold text-white uppercase rounded-b-xl z-40">
         Donate Us
     </a>
 

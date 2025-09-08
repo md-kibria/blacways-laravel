@@ -8,13 +8,13 @@
 
 
         <div
-            class="h-[450px] w-[calc(100%+100px)] bg-slate-400 absolute -top-20 -left-10 z-10 flex flex-col items-center justify-center rotate-[-5deg]">
+            class="h-[450px] w-[calc(100%+100px)] bg-green-300 absolute -top-20 -left-10 z-10 flex flex-col items-center justify-center rotate-[-5deg]">
         </div>
 
         <div class="flex flex-col items-center z-20 pt-5 pb-7">
             <h1 class="text-4xl font-bold text-white text-center pb-3">{{$page->name}}</h1>
-            <p class="text-gray-100 text-center px-2 md:px-36 lg:px-52 text-sm">Last Updated
-                {{ $page->updated_at?->format('d M, Y') }}</p>
+            {{-- <p class="text-gray-100 text-center px-2 md:px-36 lg:px-52 text-sm">Last Updated
+                {{ $page->updated_at?->format('d M, Y') }}</p> --}}
         </div>
 
 

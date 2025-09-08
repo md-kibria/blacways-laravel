@@ -5,17 +5,17 @@
 
 @section('content')
     <!-- Slider section -->
-    <div class="swiper mySwiper min-h-[400px] lg:min-h-[600px]">
+    <div class="swiper mySwiper min-h-[calc(100vh-5rem)]">
         <div class="swiper-wrapper">
             @foreach ($slides as $slide)
                 <div class="swiper-slide"
-                    style="background-image: url('{{ asset('storage/' . $slide->image) }}'); background-size: cover; background-position: center; height: 600px; position: relative;">
+                    style="background-image: url('{{ asset('storage/' . $slide->image) }}'); background-size: cover; background-position: center; height: calc(100vh - 5rem); position: relative;">
                     {{-- <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center text-white bg-black/40 p-5 rounded-lg w-11/12 sm:w-3/4 md:w-2/3 lg:w-1/2 slide-content"> --}}
                     <div class="text-white sm:text-left container mx-auto h-full flex items-center">
                         <div class="slide-content w-full sm:w-[65%]">
 
                             <h2 class="text-6xl sm:text-7xl font-bold mb-4">{{ $slide->title }}</h2>
-                            <p style="font-size: 1rem; margin-bottom: 15px;">{{ $slide->description }}</p>
+                            <p style="font-size: 1.2rem; margin-bottom: 15px;">{{ $slide->description }}</p>
 
                             <a href="{{ $slide->link ?? '#' }}"
                                 class="my-3 inline-block rounded-sm bg-green-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:rotate-2 focus:ring-3 focus:outline-hidden">
@@ -374,8 +374,6 @@
         </div>
 
     </div>
-
-    <x-newsletter />
 
     <script>
         const donateBtn = document.querySelector('#donate-btn')

@@ -192,6 +192,41 @@
                 </div>
             </div>
         </form>
+
+        <form class="my-10 p-4 rounded-md border border-slate-700" action="{{ route('admin.settings.update') }}"
+            method="POST" enctype="multipart/form-data">
+            @csrf
+            @method('POST')
+            <div class="flex items-center justify-between mb-3">
+                <h2 class="text-3xl">Video</h2>
+                <div>
+                    {{-- <span class="bg-yellow-500 p-2 px-3 mx-1 rounded-md">
+                  Edit
+                </span> --}}
+                    <button
+                        class="rounded shadow-sm sm:text-sm border border-gray-600 bg-blue-300 hover:bg-blue-400 text-slate-900 hover:text-white cursor-pointer py-2 px-3"
+                        type="submit">
+                        Update
+                    </button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div class="col-span-3">
+
+                    <div class="flex flex-col my-1">
+                        <label for="nl_vid" class="font-light my-2 text-slate-100 capitalize">Video Link</label>
+                        <input class="p-2 px-3 rounded-md bg-transparent my-1 ring-1 @error('nl_vid') ring-red-300 @else ring-slate-600 @enderror"
+                            type="text" id="nl_vid" name="nl_vid" placeholder="Pest the link" value="{{ old('nl_vid') ?? $info->nl_vid }}">
+
+                        @error('nl_vid')
+                            <span class="text-light text-red-300">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                </div>
+            </div>
+        </form>
     </div>
 
     <x-editor-script id="ad" />

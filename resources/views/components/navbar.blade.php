@@ -1,4 +1,5 @@
-<nav class="fixed top-0 left-0 w-full bg-green-300 backdrop-blur-md z-50 flex items-center justify-between px-6 md:px-10 shadow h-20">
+<nav
+    class="fixed top-0 left-0 w-full bg-gradient-to-r from-[#71A129] to-[#588B22] backdrop-blur-md z-50 flex items-center justify-between px-6 md:px-10 shadow h-20">
     {{-- bg-[#adf802] --}}
     {{-- Logo --}}
     <a href="{{ route('home') }}">
@@ -10,7 +11,7 @@
     </a>
 
     {{-- Hamburger Button (Mobile) --}}
-    <button id="menu-toggle" class="md:hidden text-slate-600 focus:outline-none cursor-pointer">
+    <button id="menu-toggle" class="md:hidden text-slate-100 focus:outline-none cursor-pointer">
         <span class="menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
@@ -28,24 +29,60 @@
     {{-- Nav Links --}}
     <ul id="menu"
         class="hidden md:flex flex-col md:flex-row md:items-center md:space-y-0 md:space-x-6 text-slate-600 absolute md:static top-full right-0 w-full max-w-[300px] md:max-w-full md:w-auto bg-white backdrop-blur-md md:backdrop-blur-none md:bg-transparent shadow-md md:shadow-none px-6 md:px-0 py-6 md:py-0 transition-all duration-300 h-screen md:h-auto">
-        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
+        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a
+                class="text-slate-700 md:text-slate-100 text-lg hover:text-slate-600"
                 href="{{ route('home') }}">Home</a></li>
-        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
-                href="{{ route('about') }}">About</a></li>
-        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
+        <li class="relative text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 group">
+            <button type="button"
+                class="peer text-slate-700 md:text-slate-100 text-lg hover:text-slate-600 flex items-center cursor-pointer focus:outline-none"
+                aria-haspopup="true" aria-expanded="false">
+                About
+                <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            <ul
+                class="absolute left-0 top-11 mt-2 w-40 bg-white shadow-lg rounded-md py-2 z-50 hidden group-hover:block peer-hover:block hover:block md:hidden md:group-hover:block text-left md:bg-gradient-to-r from-[#71A129] to-[#588B22]">
+                <li>
+                    <a href="{{ route('about') }}"
+                        class="block px-4 py-2 text-slate-700 md:text-slate-100 hover:bg-slate-100 md:hover:bg-[#71A129]">About</a>
+                </li>
+                <li>
+                    <a href="{{ route('executives') }}"
+                        class="block px-4 py-2 text-slate-700 md:text-slate-100 hover:bg-slate-100 md:hover:bg-[#71A129]">Executives</a>
+                </li>
+                <li>
+                    <a href="{{ route('council') }}"
+                        class="block px-4 py-2 text-slate-700 md:text-slate-100 hover:bg-slate-100 md:hover:bg-[#71A129]">Council
+                        of Elders</a>
+                </li>
+            </ul>
+        </li>
+        <script>
+            // Dropdown toggle for mobile and click
+            document.querySelectorAll('.group > button').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var dropdown = btn.nextElementSibling;
+                    dropdown.classList.toggle('hidden');
+                });
+            });
+        </script>
+        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a
+                class="text-slate-700 md:text-slate-100 text-lg hover:text-slate-600"
                 href="{{ route('news') }}">News</a></li>
-        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
+        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a
+                class="text-slate-700 md:text-slate-100 text-lg hover:text-slate-600"
                 href="{{ route('events') }}">Events</a></li>
-        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
+        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a
+                class="text-slate-700 md:text-slate-100 text-lg hover:text-slate-600"
                 href="{{ route('gallery') }}">Gallery</a></li>
-        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
-                href="{{ route('executives') }}">Executives</a></li>
-        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
-                href="{{ route('council') }}">Council</a></li>
-        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
+        <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a
+                class="text-slate-700 md:text-slate-100 text-lg hover:text-slate-600"
                 href="{{ route('contact') }}">Contact</a></li>
         @auth
-            <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a class="text-slate-700 text-lg hover:text-slate-600"
+            <li class="text-left md:text-center border-b md:border-0 border-slate-600 py-3 px-1 md:px-0 md:py-0"><a
+                    class="text-slate-700 md:text-slate-100 text-lg hover:text-slate-600"
                     href="{{ route('forum') }}">Forum</a></li>
         @endauth
         @guest

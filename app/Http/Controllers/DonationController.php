@@ -14,8 +14,8 @@ class DonationController extends Controller
 {
     public function index()
     {
-        return view('pages.donation');
-        // return view('pages.donation-unavailable');
+        // return view('pages.donation');
+        return view('pages.donation-unavailable');
     }
 
     private function getAccessToken()
