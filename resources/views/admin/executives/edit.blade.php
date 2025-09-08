@@ -36,6 +36,15 @@
                     placeholder="Enter position" value="{{ old('position') ?? $executive->position }}" name="position" />
                     @error('position') <span class="text-light text-red-300">{{$message}}</span> @enderror
             </label>
+            
+            <label for="about" class="block font-light my-2 text-slate-100">
+                <span class="text-sm font-medium text-gray-200"> About </span>
+
+                <textarea type="about" id="about"
+                    class="mt-0.5 w-full rounded shadow-sm sm:text-sm border @error('about') border-red-300 @else border-gray-600 @enderror bg-gray-900 text-white py-2 px-3"
+                    placeholder="Enter about" name="about">{{ old('about') ?? $executive->about }}</textarea>
+                    @error('about') <span class="text-light text-red-300">{{$message}}</span> @enderror
+            </label>
 
             <input type="submit" id="submit"
                     class="mt-0.5 w-full rounded shadow-sm sm:text-sm border border-gray-600 bg-blue-300 hover:bg-blue-400 text-slate-900 hover:text-white cursor-pointer py-2 px-3" value="Submit"/>

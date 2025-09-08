@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminPageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CouncilController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ExecutiveController;
@@ -25,6 +26,7 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/news/{news}', [PageController::class, 'newsItem'])->name('news.show');
 Route::get('/executives', [PageController::class, 'executives'])->name('executives');
+Route::get('/council', [PageController::class, 'council'])->name('council');
 
 Route::get('/donations', [DonationController::class, 'index'])->name('donation');
 Route::post('/donations/create', [DonationController::class, 'create'])->name('donations.create');
@@ -117,6 +119,17 @@ Route::prefix('admin')->middleware('admin')->group(function () {
             'destroy' => 'admin.executives.destroy',
         ]);
 
+    Route::resource('/council-elders', CouncilController::class)
+        ->except(['show'])
+        ->names([
+            'index' => 'admin.council.index',
+            'create' => 'admin.council.create',
+            'store' => 'admin.council.store',
+            'edit' => 'admin.council.edit',
+            'update' => 'admin.council.update',
+            'destroy' => 'admin.council.destroy',
+        ]);
+
     Route::get('/forum-posts', [ForumController::class, 'index'])->name('admin.forum.index');
     Route::put('/forum-posts/{forum}', [ForumController::class, 'change_approve'])->name('admin.forum.update');
     Route::delete('/forum-posts/{forum}', [ForumController::class, 'admin_destroy'])->name('admin.forum.destroy');
@@ -148,7 +161,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
 
     Route::get('/newsletters', [NewsletterController::class, 'index'])->name('admin.newsletters');
     Route::delete('/newsletters/{id}', [NewsletterController::class, 'destroy'])->name('admin.newsletters.destroy');
-    
+
     Route::get('/donations', [DonationController::class, 'admin'])->name('admin.donations');
 
     Route::get('/admins', [AdminController::class, 'admins'])->name('admin.admins');

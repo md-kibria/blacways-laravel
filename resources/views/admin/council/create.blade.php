@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Add Executives')
-@section('header', 'Add Executives')
+@section('title', 'Add council of elders')
+@section('header', 'Add council of elders')
 
 @section('content')
 
@@ -9,7 +9,7 @@
 
     <div class="w-full py-22">
 
-        <form action="{{ route('admin.executives.store') }}" class="border border-slate-700 w-2/3 mx-auto p-4 px-6 rounded-lg" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.council.store') }}" class="border border-slate-700 w-2/3 mx-auto p-4 px-6 rounded-lg" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
             <label for="name" class="block font-light my-2 text-slate-100">

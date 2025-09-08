@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Executive;
+use App\Models\Council;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ExecutiveController extends Controller
+class CouncilController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $executives = Executive::orderBy('id', 'desc')->paginate(10);
-        return view('admin.executives.index', compact('executives'));
+        $councils = Council::orderBy('id', 'desc')->paginate(10);
+        return view('admin.council.index', compact('councils'));
     }
 
     /**
@@ -22,7 +23,7 @@ class ExecutiveController extends Controller
      */
     public function create()
     {
-        return view('admin.executives.create');
+        return view('admin.council.create');
     }
 
     /**
@@ -43,8 +44,8 @@ class ExecutiveController extends Controller
             $data['image'] = $request->file('image')->store('images', 'public');
         }
 
-        Executive::create($data);
-        return redirect()->route('admin.executives.index')->with('success', 'Created successfully');
+        Council::create($data);
+        return redirect()->route('admin.council.index')->with('success', 'Created successfully');
     }
 
     /**
@@ -60,8 +61,8 @@ class ExecutiveController extends Controller
      */
     public function edit(string $id)
     {
-        $executive = Executive::findOrFail($id);
-        return view('admin.executives.edit', compact('executive'));
+        $council = Council::findOrFail($id);
+        return view('admin.council.edit', compact('council'));
     }
 
     /**
@@ -69,7 +70,7 @@ class ExecutiveController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $executive = Executive::findOrFail($id);
+        $council = Council::findOrFail($id);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -82,14 +83,14 @@ class ExecutiveController extends Controller
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('images', 'public');
 
-            if ($executive->image) {
-                Storage::disk('public')->delete($executive->image);
+            if ($council->image) {
+                Storage::disk('public')->delete($council->image);
             }
         }
 
-        $executive->update($data);
+        $council->update($data);
 
-        return redirect()->route('admin.executives.index')->with('success', 'Updated successfully');
+        return redirect()->route('admin.council.index')->with('success', 'Updated successfully');
     }
 
     /**
@@ -97,14 +98,14 @@ class ExecutiveController extends Controller
      */
     public function destroy(string $id)
     {
-        $executive = Executive::findOrFail($id);
+        $council = Council::findOrFail($id);
 
-        if ($executive->image) {
-            Storage::disk('public')->delete($executive->image);
+        if ($council->image) {
+            Storage::disk('public')->delete($council->image);
         }
 
-        $executive->delete();
+        $council->delete();
 
-        return redirect()->route('admin.executives.index')->with('success', 'Deleted successfully');
+        return redirect()->route('admin.council.index')->with('success', 'Deleted successfully');
     }
 }

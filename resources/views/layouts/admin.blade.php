@@ -364,6 +364,14 @@
                                     <p>Executives Page</p>
                                 </a>
                             </li>
+                            <li>
+                                <a class="my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4"
+                                    href="{{ route('admin.pages', 'council') }}">
+                                    <p class="text-2xl"><ion-icon class="my-auto block"
+                                            name="at-outline"></ion-icon></p>
+                                    <p>Council Page</p>
+                                </a>
+                            </li>
                             
                             <li>
                                 <a class="my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4"
@@ -401,6 +409,14 @@
                             <p class="text-2xl"><ion-icon class="my-auto block" name="ribbon-outline"></ion-icon>
                             </p>
                             <p>Executives</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="block my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4 @if (Route::currentRouteName() == 'admin.council.index') bg-slate-600 text-green-300 @endif"
+                            href="{{ route('admin.council.index') }}">
+                            <p class="text-2xl"><ion-icon class="my-auto block" name="ribbon-outline"></ion-icon>
+                            </p>
+                            <p>Council of Elders</p>
                         </a>
                     </li>
                     <li>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Council;
 use App\Models\Event;
 use App\Models\Executive;
 use App\Models\Gallery;
@@ -84,6 +85,14 @@ class PageController extends Controller
         $page = Page::where('slug', 'executives')->first();
 
         return view('pages.executives', compact('executives', 'page'));
+    }
+    
+    public function council()
+    {
+        $councils = Council::orderBy('id', 'desc')->paginate(12);
+        $page = Page::where('slug', 'council')->first();
+
+        return view('pages.council', compact('councils', 'page'));
     }
 
     public function events()
