@@ -42,6 +42,13 @@
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                 </div>
+                 {{-- reCAPTCHA --}}
+                {!! NoCaptcha::renderJs() !!}
+                {!! NoCaptcha::display() !!}
+
+                @if ($errors->has('g-recaptcha-response'))
+                    <span class="text-red-500 text-sm">{{ $errors->first('g-recaptcha-response') }}</span>
+                @endif
 
                 <div class="text-left mt-4 pb-3">
                     <p class="text-sm text-gray-400">
