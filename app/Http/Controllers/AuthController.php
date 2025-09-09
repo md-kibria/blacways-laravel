@@ -59,7 +59,7 @@ class AuthController extends Controller
             'g-recaptcha-response' => 'required|captcha',
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt(['email' => $credentials['email'], 'password' => $credentials['password']])) {
 
             $previousUrl = session()->get('previousUrl');
             if ($previousUrl) {
