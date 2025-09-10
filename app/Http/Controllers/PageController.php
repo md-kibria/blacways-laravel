@@ -27,6 +27,7 @@ class PageController extends Controller
         $about = HomepageContent::where('section', 'about')->first();
         $mission = HomepageContent::where('section', 'mission')->first();
         $donation = HomepageContent::where('section', 'donation')->first();
+        $localGovt = HomepageContent::where('section', 'local governments')->first();
         $slides = Slide::all();
         $news_desc = Page::where('slug', 'news')->select('description')->first()->description;
         $news = News::where('status', 'published')->orderBy('id', 'desc')->limit(4)->get();
@@ -34,7 +35,7 @@ class PageController extends Controller
         $events_desc = Page::where('slug', 'events')->select('description')->first()->description;
         $events = Event::orderBy('id', 'desc')->limit(2)->get();
 
-        return view('pages.home', compact('header', 'info', 'features_1', 'features_2', 'features_3', 'about', 'mission', 'donation', 'news_desc', 'news', 'events_desc', 'events', 'slides'));
+        return view('pages.home', compact('header', 'info', 'features_1', 'features_2', 'features_3', 'about', 'mission', 'localGovt', 'donation', 'news_desc', 'news', 'events_desc', 'events', 'slides'));
     }
 
     public function about()

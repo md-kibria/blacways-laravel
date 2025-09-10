@@ -18,7 +18,7 @@
                             <p style="font-size: 1.2rem; margin-bottom: 15px;">{{ $slide->description }}</p>
 
                             <a href="{{ $slide->link ?? '#' }}"
-                                class="my-3 inline-block rounded-sm bg-green-600 px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:rotate-2 focus:ring-3 focus:outline-hidden">
+                                class="my-3 inline-block rounded-sm bg-gradient-to-r from-[#71A129] to-[#588B22] px-8 py-3 text-sm font-medium text-white transition hover:scale-110 hover:rotate-2 focus:ring-3 focus:outline-hidden">
                                 {{ $slide->button_text ?? 'Learn More' }}
                             </a>
 
@@ -116,7 +116,7 @@
 
     <!-- About Section -->
     <div class="flex flex-col md:flex-row items-center justify-center gap-10 px-10 py-20 bg-green-100">
-        <img class="md:w-[300px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[500px] xl:h-[600px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tl-[50px] sm:rounded-br-[50px]"
+        <img class="md:w-[300px] md:h-[400px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tl-[50px] sm:rounded-br-[50px]"
             src="{{ asset($about->image ? '/storage/' . $about->image : '/img/default.png') }}" alt="">
         <div class="text-center md:text-left">
             <h2 class="text-4xl font-bold mb-4 text-slate-600">About Us</h2>
@@ -124,7 +124,7 @@
                 {{ $about->sub_title }}
             </p>
 
-            <a class="inline-flex items-center gap-2 rounded-sm border border-green-400 bg-green-400 px-8 py-3 text-white hover:bg-transparent hover:text-green-400 focus:ring-3 focus:outline-hidden transition duration-300"
+            <a class="inline-flex items-center gap-2 rounded-sm border border-[#71A129] bg-gradient-to-r from-[#71A129] to-[#588B22] px-8 py-3 text-white hover:bg-none hover:text-[#588B22] focus:ring-3 focus:outline-hidden transition duration-300"
                 href="/about">
                 <span class="text-sm font-medium"> Learn More </span>
 
@@ -138,7 +138,7 @@
    
     <!-- Mission Section -->
     <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-10 px-10 py-20">
-        <img class="md:w-[300px] md:h-[400px] lg:w-[400px] lg:h-[500px] xl:w-[500px] xl:h-[600px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tr-[50px] sm:rounded-bl-[50px]"
+        <img class="md:w-[300px] md:h-[400px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tr-[50px] sm:rounded-bl-[50px]"
             src="{{ asset($mission->image ? '/storage/' . $mission->image : '/img/default.png') }}" alt="">
         <div class="text-center md:text-left">
             <h2 class="text-4xl font-bold mb-4 text-slate-600">{{ $mission->title }}</h2>
@@ -146,7 +146,7 @@
                 {{ $mission->sub_title }}
             </p>
 
-            <a class="inline-flex items-center gap-2 rounded-sm border border-green-400 bg-green-400 px-8 py-3 text-white hover:bg-transparent hover:text-green-400 focus:ring-3 focus:outline-hidden transition duration-300"
+            <a class="inline-flex items-center gap-2 rounded-sm border border-[#71A129] bg-gradient-to-r from-[#71A129] to-[#588B22] px-8 py-3 text-white hover:bg-none hover:text-[#588B22] focus:ring-3 focus:outline-hidden transition duration-300"
                 href="{{ route('about') }}">
                 <span class="text-sm font-medium"> Learn More </span>
 
@@ -162,13 +162,11 @@
     <div class="bg-[#62BA70]">
         <div class="container mx-auto text-white py-24 flex flex-col md:flex-row items-center justify-center">
 
-            <img src="{{ asset('/img/map.png') }}" class="h-[300px]" alt="">
+            <img src="{{ asset($localGovt->image ? '/storage/' . $localGovt->image : '/img/default.png') }}" class="h-[300px]" alt="">
 
             <div class="text-center md:text-left w-[80%] md:w-[60%] xl:w-[50%] ">
-                <h2 class="text-4xl font-bold mb-2 w-fit">17 Local Governments of Abia State</h2>
-                <p class="mb-8">Aba North, Aba South, Arochukwu, Bende,
-                    Ikwuano, Isiala-Ngwa North, Isiala-Ngwa South, Isukwuato, Obi Ngwa, Ukwa East, Ukwa West, Ohafia, Osisioma,
-                    Ugwunagbo, Umuahia North, Umuahia South, Umu-Nneochi!
+                <h2 class="text-4xl font-bold mb-2 w-fit">{{ $localGovt->title }}</h2>
+                <p class="mb-8">{{ $localGovt->sub_title }}
                 </p>
             </div>
         </div>
@@ -214,7 +212,7 @@
 
                             <div class="sm:flex sm:items-end sm:justify-end">
                                 <a href="/events/{{ $item->id }}"
-                                    class="block bg-green-300 px-5 py-3 text-center text-xs font-bold text-gray-900 uppercase transition hover:bg-green-400">
+                                    class="block bg-gradient-to-r from-[#71A129] to-[#588B22] px-5 py-3 text-center text-xs font-bold text-gray-900 uppercase transition hover:bg-green-400">
                                     Read More
                                 </a>
                             </div>
@@ -242,8 +240,8 @@
                         </div>
 
                         <div class="p-4 sm:p-6">
-                            <time datetime="{{ $item->datetime }}" class="block text-xs text-gray-500">
-                                {{ \Carbon\Carbon::parse($item->datetime)->format('jS M Y') }}
+                            <time datetime="{{ $item->created_at }}" class="block text-xs text-gray-500">
+                                {{ \Carbon\Carbon::parse($item->created_at)->format('jS M Y') }}
                             </time>
                             <a href="/news/{{ $item->id }}">
                                 <h3 class="text-lg font-medium text-gray-900">
@@ -272,7 +270,7 @@
     @endif
 
     <!-- Donation Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 items-center justify-center px-5 sm:px-25 min-h-screen">
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center justify-center px-5 sm:px-25 py-5">
         <div class="flex items-center justify-center">
             <img class="h-[300px] md:h-[500px] grayscale  transition duration-300" id="donate-light" src="/img/light.png"
                 alt="">
@@ -330,7 +328,7 @@
                             </div>
                             <div>
                                 <button type="submit"
-                                    class="w-full bg-green-500 hover:bg-green-400 text-white py-2 rounded cursor-pointer transition">Submit</button>
+                                    class="w-full border border-[#71A129] bg-gradient-to-r from-[#71A129] to-[#588B22] px-8 text-white hover:bg-none hover:text-[#588B22] py-2 rounded cursor-pointer transition">Submit</button>
                             </div>
                         </div>
                     </form>

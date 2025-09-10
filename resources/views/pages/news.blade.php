@@ -5,6 +5,10 @@
 
 @section('content')
     <div class="px-5 md:px-25 py-15">
+        <div
+            class="h-[450px] w-[calc(100%+100px)] bg-green-100 absolute -top-20 -left-10 -z-10 flex flex-col items-center justify-center rotate-[-5deg]">
+        </div>
+        
         <h2 class="text-4xl font-bold mb-2 text-slate-600 text-center">{{ $page->name }}</h2>
         <p class="text-slate-400 text-center w-[80%] md:w-[60%] xl:w-[50%] mx-auto mb-8">{{ $page->description }}</p>
 
@@ -25,8 +29,8 @@
                     </div>
 
                     <div class="p-4 sm:p-6">
-                        <time datetime="{{ $item->datetime }}" class="block text-xs text-gray-500">
-                            {{ \Carbon\Carbon::parse($item->datetime)->format('jS M Y') }}
+                        <time datetime="{{ $item->created_at }}" class="block text-xs text-gray-500">
+                            {{ \Carbon\Carbon::parse($item->created_at)->format('jS M Y') }}
                         </time>
                         <a href="/news/{{ $item->id }}">
                             <h3 class="text-lg font-medium text-gray-900">

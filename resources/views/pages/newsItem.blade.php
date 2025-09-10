@@ -4,6 +4,9 @@
 @section('description', $news->content)
 
 @section('content')
+    <div
+        class="h-[450px] w-[calc(100%+100px)] bg-green-100 absolute -top-20 -left-10 -z-10 flex flex-col items-center justify-center rotate-[-5deg]">
+    </div>
     <section class="container mx-auto min-h-screen relative py-15 flex flex-col justify-center items-center">
 
         {{-- <div class="absolute inset-0"
@@ -71,7 +74,7 @@
                                         class="border-t border-l border-b rounded-l-md @error('comment') border-red-300 @else border-gray-400 @enderror p-2 grow outline-0"
                                         placeholder="Write your comment here">{{ $comment->comment }}</textarea>
                                     <input type="submit" value="Update"
-                                        class="bg-blue-400 border-t border-r border-b @error('comment') border-red-300 @else border-gray-400 @enderror text-white rounded-r-md px-4 cursor-pointer">
+                                        class="bg-gradient-to-r from-[#71A129] to-[#588B22] border-t border-r border-b @error('comment') border-red-300 @else border-gray-400 @enderror text-white rounded-r-md px-4 cursor-pointer">
                                 </form>
                             </div>
                         </div>
@@ -87,7 +90,7 @@
                                 class="border-t border-l border-b rounded-l-md @error('comment') border-red-300 @else border-gray-400 @enderror p-2 grow outline-0"
                                 placeholder="Write your comment here"></textarea>
                             <input type="submit" value="Submit"
-                                class="bg-blue-400 border-t border-r border-b @error('comment') border-red-300 @else border-gray-400 @enderror text-white rounded-r-md px-4 cursor-pointer">
+                                class="bg-gradient-to-r from-[#71A129] to-[#588B22] border-t border-r border-b @error('comment') border-red-300 @else border-gray-400 @enderror text-white rounded-r-md px-4 cursor-pointer">
                         </form>
                         @error('comment')
                             <span class="text-red-500 text-sm">{{ $message }}</span>

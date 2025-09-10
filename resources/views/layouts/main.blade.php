@@ -39,8 +39,8 @@
         </span>
     </a> --}}
 
-    <a href="{{ route('donation') }}" class="fixed -left-[50px] top-30 translate-y-50 -rotate-90 flex items-center justify-center text-xl h-[40px] w-[140px] bg-black font-bold text-white uppercase rounded-b-xl z-40">
-        Donate Us
+    <a href="{{ route('donation') }}" class="fixed -left-[42px] top-30 translate-y-50 -rotate-90 flex items-center justify-center text-xl h-[40px] w-[120px] bg-gradient-to-r from-[#71A129] to-[#588B22] font-bold text-white uppercase rounded-b-xl z-40">
+        Donate
     </a>
 
     @vite('resources/js/app.js')

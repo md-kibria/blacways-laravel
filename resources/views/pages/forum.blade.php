@@ -3,6 +3,7 @@
 @section('title', 'Forum')
 
 @section('content')
+
     <div class="container mx-auto h-screen py-10 flex flex-col gap-3 px-1">
 
         {{-- <h2 class="text-4xl text-slate-700 font-semibold mb-6">Welcome back to Forum!</h2> --}}

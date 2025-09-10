@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', $user->name.' Profile')
+@section('title', $user->name . ' Profile')
 
 @section('content')
     {{-- <div class="container mx-auto h-screen py-25 flex flex-col justify-start gap-3">
@@ -35,23 +35,26 @@
         </div>
     </div> --}}
 
+    <div
+        class="h-[450px] w-[calc(100%+100px)] bg-green-100 absolute -top-20 -left-10 -z-10 flex flex-col items-center justify-center rotate-[-5deg]">
+    </div>
     <div class="container mx-auto min-h-screen py-15 px-2 flex flex-col justify-center items-center">
 
 
 
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm">
             <div class="flex justify-end px-4 pt-4">
-                <a
-                    class="inline-block text-red-500 hover:bg-red-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg text-2xl p-1 cursor-pointer"
+                <a class="inline-block text-red-500 hover:bg-red-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg text-2xl p-1 cursor-pointer"
                     title="Logout" href="{{ route('logout') }}">
                     <ion-icon name="log-out-outline"></ion-icon>
-            </a>
-                
+                </a>
+
             </div>
             <div class="flex flex-col items-center pb-10">
                 <div class="w-24 h-24 mb-3 rounded-full shadow-lg relative">
                     <img class="w-full h-full mb-3 rounded-full"
-                        src="{{ $user->image ? asset('/storage/'.$user->image) : '/img/profile.png' }}" alt="{{ $user->name }}" />
+                        src="{{ $user->image ? asset('/storage/' . $user->image) : '/img/profile.png' }}"
+                        alt="{{ $user->name }}" />
 
                     @if ($user->status === 'active')
                         <p
@@ -66,7 +69,8 @@
                     @else
                         <p
                             class="text-red-500 text-2xl absolute -right-0 bottom-2 bg-white rounded-full h-6 w-6 flex items-center justify-center">
-                            <ion-icon name="close-circle"></ion-icon></p>
+                            <ion-icon name="close-circle"></ion-icon>
+                        </p>
                     @endif
                 </div>
                 <h5 class="mb-1 text-xl font-medium text-gray-900">{{ $user->name }}</h5>
@@ -74,10 +78,10 @@
                 <span class="text-sm text-red-400">Due: ${{ $user->balance ?? 0 }}</span>
                 <div class="flex mt-4 md:mt-6">
                     <a href="{{ route('forum') }}"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white border border-[#71A129] bg-gradient-to-r from-[#71A129] to-[#588B22] hover:bg-none hover:text-[#588B22] rounded-lg focus:ring-4 focus:outline-none focus:ring-blue-300"
                         title="Forum">Forum</a>
                     <a href="{{ route('profile.edit') }}"
-                        class="py-2 px-4 ms-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100"
+                        class="py-2 px-4 ms-2 text-sm font-medium text-[#71A129] focus:outline-none bg-white rounded-lg border border-[#588B22] hover:bg-green-100 hover:text-[#588B22] focus:z-10 focus:ring-4 focus:ring-gray-100"
                         title="Update Profile">Update</a>
                 </div>
             </div>
