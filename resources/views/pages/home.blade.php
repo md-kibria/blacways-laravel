@@ -158,7 +158,7 @@
         </div>
     </div>
 
-    <!-- 17 Local Governments of Abia State -->
+    <!-- Local Governments of Abia State -->
     <div class="bg-[#62BA70]">
         <div class="container mx-auto text-white py-24 flex flex-col md:flex-row items-center justify-center">
 
