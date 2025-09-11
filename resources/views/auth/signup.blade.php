@@ -10,14 +10,14 @@
             <h2 class="text-2xl text-slate-700 font-bold mb-6 text-center">Sign Up</h2>
             <form action="{{ route('register') }}" method="POST">
                 @csrf
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label for="name" class="block text-sm font-medium text-gray-400">Name</label>
                     <input type="text" name="name" id="name" value="{{ old('name') }}" 
                         class="py-2 px-3 mt-1 block w-full rounded-md border @error('name') border-red-300 @else border-gray-400 @enderror text-slate-700 shadow-sm focus:outline-0 focus:ring-slate-400 focus:border-slate-400 sm:text-sm" placeholder="Enter your name" required>
                         @error('name')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
-                </div>
+                </div> --}}
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-400">Email</label>
                     <input type="email" name="email" id="email" value="{{ old('email') }}" 

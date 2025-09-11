@@ -7,7 +7,7 @@
 
 
 
-    <div class="overflow-x-auto w-full pt-6 pb-4 dark flex items-center justify-center min-h-screen">
+    <div class="overflow-x-auto w-full pt-6 pb-4 dark flex flex-col md:flex-row items-center justify-center min-h-screen gap-2">
 
 
 
@@ -47,7 +47,7 @@
                         </p>
                     @endif
                 </div>
-                <h5 class="mb-1 text-xl font-medium text-white">{{ $user->name }}
+                <h5 class="mb-1 text-xl font-medium text-white">{{ $user->profile->first_name }} {{ $user->profile->last_name }}
                     @if ($user->status === 'active')
                         <span class="text-green-500 text-sm">
                             ({{ $user->status }})
@@ -101,7 +101,58 @@
         </div>
 
 
+        <div class="w-full max-w-sm bg-gray-800 border border-gray-700 rounded-lg shadow-sm">
+            
+            <div class="px-6 py-4">
+                <h5 class="mb-4 text-xl font-medium text-white text-center">Member Details</h5>
+                <ul class="space-y-3">
+                    <li class="flex items-center">
+                        <span class="font-semibold text-gray-400 w-[90px]">Phone: </span>
+                        <span class="text-white">{{ $user->profile->phone }}</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="font-semibold text-gray-400 w-[90px]">Birthday: </span>
+                        <span class="text-white">{{ $user->profile->birthday }}</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="font-semibold text-gray-400 w-[90px]">Gender: </span>
+                        <span class="text-white">{{ $user->profile->gender }}</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="font-semibold text-gray-400 w-[90px]">Address: </span>
+                        <span class="text-white">{{ $user->profile->address }}</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="font-semibold text-gray-400 w-[90px]">Address 2: </span>
+                        <span class="text-white">{{ $user->profile->address_2 }}</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="font-semibold text-gray-400 w-[90px]">City: </span>
+                        <span class="text-white">{{ $user->profile->city }}</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="font-semibold text-gray-400 w-[90px]">State: </span>
+                        <span class="text-white">{{ $user->profile->state }}</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="font-semibold text-gray-400 w-[90px]">Zip: </span>
+                        <span class="text-white">{{ $user->profile->zip }}</span>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="font-semibold text-gray-400 w-[90px]">Country: </span>
+                        <span class="text-white">{{ $user->profile->country }}</span>
+                    </li>
+                </ul>
+        </div>
     </div>
+    
+    
+
+
+
+
+
+
 
 
 @endsection
