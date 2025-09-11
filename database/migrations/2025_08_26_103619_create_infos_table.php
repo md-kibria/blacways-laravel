@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('logo')->nullable();
+            $table->string('footer_logo')->nullable();
             $table->string('favicon')->nullable();
             $table->text('description')->nullable();
             $table->string('email')->nullable();
@@ -23,6 +24,12 @@ return new class extends Migration
             $table->longText('ad')->nullable();
             $table->boolean('ad_visibility')->nullable();
             $table->text('nl_vid')->nullable();
+            $table->string('street_address')->nullable();
+            $table->string('suite')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('country')->nullable();
             $table->timestamps();
         });
     }

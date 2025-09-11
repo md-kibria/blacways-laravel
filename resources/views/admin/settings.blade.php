@@ -50,6 +50,17 @@
                         @enderror
                     </div>
                     <div class="flex flex-col my-1">
+                        <label for="footer_logo" class="font-light my-2 text-slate-100">Footer Logo</label>
+                        <input
+                            class="p-2 px-3 rounded-md bg-transparent ring-1 @error('footer_logo') ring-red-300 @else ring-slate-600 @enderror"
+                            type="file" id="footer_logo" name="footer_logo" placeholder="Your footer_logo here"
+                            value="">
+
+                        @error('footer_logo')
+                            <span class="text-light text-red-300">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="flex flex-col my-1">
                         <label for="description" class="font-light my-2 text-slate-100">Description</label>
                         <textarea
                             class="p-2 px-3 rounded-md bg-transparent ring-1 @error('description') ring-red-300 @else ring-slate-600 @enderror"
@@ -96,10 +107,88 @@
                         @enderror
                     </div>
 
+
+                    {{-- Detaild address --}}
+                    <div class="flex w-full gap-2">
+                        <div class="flex flex-col my-1 grow">
+                            <label for="street_address" class="font-light my-2 text-slate-100">Street Address</label>
+                            <input
+                                class="p-2 px-3 rounded-md bg-transparent ring-1 @error('street_address') ring-red-300 @else ring-slate-600 @enderror"
+                                type="text" id="street_address" name="street_address" placeholder="Your street address here"
+                                value="{{ old('street_address') ?? $info->street_address }}">
+
+                            @error('street_address')
+                                <span class="text-light text-red-300">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="flex flex-col my-1 grow">
+                            <label for="suite" class="font-light my-2 text-slate-100">Suite</label>
+                            <input
+                                class="p-2 px-3 rounded-md bg-transparent ring-1 @error('suite') ring-red-300 @else ring-slate-600 @enderror"
+                                type="text" id="suite" name="suite" placeholder="Your street address here"
+                                value="{{ old('suite') ?? $info->suite }}">
+
+                            @error('suite')
+                                <span class="text-light text-red-300">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="flex w-full gap-2">
+                        <div class="flex flex-col my-1 grow">
+                            <label for="city" class="font-light my-2 text-slate-100">City</label>
+                            <input
+                                class="p-2 px-3 rounded-md bg-transparent ring-1 @error('city') ring-red-300 @else ring-slate-600 @enderror"
+                                type="text" id="city" name="city" placeholder="Your city here"
+                                value="{{ old('city') ?? $info->city }}">
+
+                            @error('city')
+                                <span class="text-light text-red-300">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="flex flex-col my-1 grow">
+                            <label for="state" class="font-light my-2 text-slate-100">State</label>
+                            <input
+                                class="p-2 px-3 rounded-md bg-transparent ring-1 @error('state') ring-red-300 @else ring-slate-600 @enderror"
+                                type="text" id="state" name="state" placeholder="Your state here"
+                                value="{{ old('state') ?? $info->state }}">
+
+                            @error('state')
+                                <span class="text-light text-red-300">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="flex w-full gap-2">
+                        <div class="flex flex-col my-1 grow">
+                            <label for="zip" class="font-light my-2 text-slate-100">Zip</label>
+                            <input
+                                class="p-2 px-3 rounded-md bg-transparent ring-1 @error('zip') ring-red-300 @else ring-slate-600 @enderror"
+                                type="text" id="zip" name="zip" placeholder="Your zip here"
+                                value="{{ old('zip') ?? $info->zip }}">
+
+                            @error('zip')
+                                <span class="text-light text-red-300">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <div class="flex flex-col my-1 grow">
+                            <label for="country" class="font-light my-2 text-slate-100">Country</label>
+                            <input
+                                class="p-2 px-3 rounded-md bg-transparent ring-1 @error('country') ring-red-300 @else ring-slate-600 @enderror"
+                                type="text" id="country" name="country" placeholder="Your country here"
+                                value="{{ old('country') ?? $info->country }}">
+
+                            @error('country')
+                                <span class="text-light text-red-300">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+
                 </div>
                 <div class="felx">
                     <label for="title" class="block font-light my-2 text-slate-100">Preview Logo</label>
                     <img class="ring-1 rounded-lg ring-slate-600 w-full" src="{{ asset('/storage/' . $info->logo) }}" />
+                    <label for="title" class="block font-light my-2 text-slate-100">Footer Logo</label>
+                    <img class="ring-1 rounded-lg ring-slate-600 w-full"
+                        src="{{ asset('/storage/' . $info->footer_logo) }}" />
                 </div>
             </div>
         </form>
@@ -216,8 +305,10 @@
 
                     <div class="flex flex-col my-1">
                         <label for="nl_vid" class="font-light my-2 text-slate-100 capitalize">Video Link</label>
-                        <input class="p-2 px-3 rounded-md bg-transparent my-1 ring-1 @error('nl_vid') ring-red-300 @else ring-slate-600 @enderror"
-                            type="text" id="nl_vid" name="nl_vid" placeholder="Pest the link" value="{{ old('nl_vid') ?? $info->nl_vid }}">
+                        <input
+                            class="p-2 px-3 rounded-md bg-transparent my-1 ring-1 @error('nl_vid') ring-red-300 @else ring-slate-600 @enderror"
+                            type="text" id="nl_vid" name="nl_vid" placeholder="Pest the link"
+                            value="{{ old('nl_vid') ?? $info->nl_vid }}">
 
                         @error('nl_vid')
                             <span class="text-light text-red-300">{{ $message }}</span>

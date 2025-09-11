@@ -47,7 +47,7 @@
                         </p>
                     @endif
                 </div>
-                <h5 class="mb-1 text-xl font-medium text-white">{{ $user->profile->first_name }} {{ $user->profile->last_name }}
+                <h5 class="mb-1 text-xl font-medium text-white">{{ $user?->profile?->first_name }} {{ $user?->profile?->last_name }}
                     @if ($user->status === 'active')
                         <span class="text-green-500 text-sm">
                             ({{ $user->status }})
@@ -108,39 +108,39 @@
                 <ul class="space-y-3">
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">Phone: </span>
-                        <span class="text-white">{{ $user->profile->phone }}</span>
+                        <span class="text-white">{{ $user?->profile?->phone }}</span>
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">Birthday: </span>
-                        <span class="text-white">{{ $user->profile->birthday }}</span>
+                        <span class="text-white">{{ $user?->profile?->birthday }}</span>
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">Gender: </span>
-                        <span class="text-white">{{ $user->profile->gender }}</span>
+                        <span class="text-white">{{ $user?->profile?->gender }}</span>
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">Address: </span>
-                        <span class="text-white">{{ $user->profile->address }}</span>
+                        <span class="text-white">{{ $user?->profile?->address }}</span>
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">Address 2: </span>
-                        <span class="text-white">{{ $user->profile->address_2 }}</span>
+                        <span class="text-white">{{ $user?->profile?->address_2 }}</span>
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">City: </span>
-                        <span class="text-white">{{ $user->profile->city }}</span>
+                        <span class="text-white">{{ $user?->profile?->city }}</span>
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">State: </span>
-                        <span class="text-white">{{ $user->profile->state }}</span>
+                        <span class="text-white">{{ $user?->profile?->state }}</span>
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">Zip: </span>
-                        <span class="text-white">{{ $user->profile->zip }}</span>
+                        <span class="text-white">{{ $user?->profile?->zip }}</span>
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">Country: </span>
-                        <span class="text-white">{{ $user->profile->country }}</span>
+                        <span class="text-white">{{ $user?->profile?->country }}</span>
                     </li>
                 </ul>
         </div>

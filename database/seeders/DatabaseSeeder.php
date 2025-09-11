@@ -63,6 +63,14 @@ class DatabaseSeeder extends Seeder
             'section' => 'donation',
             'sub_title' => 'To continue our work, we need your donation. Would you want to participate with us?'
         ]);
+        
+        HomepageContent::factory()->create([
+            'section' => 'mission',
+        ]);
+        
+        HomepageContent::factory()->create([
+            'section' => 'local governments',
+        ]);
 
         Page::factory()->create([
             'name' => 'about',

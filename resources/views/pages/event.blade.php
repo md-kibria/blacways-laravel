@@ -39,7 +39,7 @@
         <div class="container mx-auto shadow-xl bg-blue-100 z-50 mt-72 rounded-md">
             {{-- <div class="bg-blue-100 rounded-md -top-32 h-full w-full absolute"> --}}
                 {{-- <div class="h-20 bg-blue-400 rounded-t-md flex items-center justify-around"> --}}
-                <div class=" bg-blue-400 rounded-t-md grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+                <div class=" bg-[#71A129] rounded-t-md grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
                     @php
                         use Carbon\Carbon;
 
@@ -61,7 +61,7 @@
                         }
                     @endphp
                     <div
-                        class="text-white flex items-center justify-center gap-4 py-8 border border-blue-300 rounded-tl-md rounded-tr-md sm:rounded-tr-none">
+                        class="text-white flex items-center justify-center gap-4 py-8 border border-[#588B22] rounded-tl-md rounded-tr-md sm:rounded-tr-none">
                         <ion-icon name="alarm-outline" class="text-4xl text-slate-100"></ion-icon>
                         <p class="text-4xl font-semibold">{{ str_pad($wait, 2, '0', STR_PAD_LEFT) }}</p>
                         <div class="flex flex-col justify-end uppercase">
@@ -71,7 +71,7 @@
                     </div>
 
                     <div
-                        class="text-white flex items-center justify-center gap-4 py-8 border border-blue-300 sm:rounded-tr-md lg:rounded-tr-none">
+                        class="text-white flex items-center justify-center gap-4 py-8 border border-[#588B22] sm:rounded-tr-md lg:rounded-tr-none">
                         <ion-icon name="calendar-outline" class="text-4xl text-slate-100"></ion-icon>
                         <div class="flex flex-col justify-center uppercase">
                             <span
@@ -82,7 +82,7 @@
                         </div>
                     </div>
 
-                    <div class="text-white flex items-center justify-center gap-4 py-8 border border-blue-300">
+                    <div class="text-white flex items-center justify-center gap-4 py-8 border border-[#588B22]">
                         <ion-icon name="location-outline" class="text-4xl text-slate-100"></ion-icon>
                         <div class="flex flex-col justify-center uppercase">
                             <span class="font-bold text-lg leading-5">Location</span>
@@ -91,7 +91,7 @@
                     </div>
 
                     <div
-                        class="text-white flex items-center justify-center gap-4 py-8 border border-blue-300 lg:rounded-tr-md">
+                        class="text-white flex items-center justify-center gap-4 py-8 border border-[#588B22] lg:rounded-tr-md">
                         <ion-icon name="people-outline" class="text-4xl text-slate-100"></ion-icon>
                         <div class="flex flex-col justify-center uppercase">
                             <span class="font-bold text-lg leading-5">Organizer</span>

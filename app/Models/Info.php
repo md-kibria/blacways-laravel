@@ -12,6 +12,7 @@ class Info extends Model
     protected $fillable = [
         'title',
         'logo',
+        'footer_logo',
         'favicon',
         'description',
         'email',
@@ -19,6 +20,12 @@ class Info extends Model
         'address',
         'ad',
         'ad_visibility',
-        'nl_vid'
+        'nl_vid',
+        'street_address',
+        'suite',
+        'city',
+        'state',
+        'zip',
+        'country',
     ];
 }

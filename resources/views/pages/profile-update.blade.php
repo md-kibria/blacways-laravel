@@ -22,7 +22,7 @@
                         <label for="first_name" class="block mb-2 text-sm font-medium capitalize">Your first name</label>
                         <input type="first_name" name="first_name" id="first_name"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="You first name here" value="{{ old('first_name') ?? $user->profile->first_name }}" />
+                            placeholder="You first name here" value="{{ old('first_name') ?? $user?->profile?->first_name }}" />
                         @error('first_name')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -31,7 +31,7 @@
                         <label for="last_name" class="block mb-2 text-sm font-medium capitalize">Your last name</label>
                         <input type="last_name" name="last_name" id="last_name"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="You last name here" value="{{ old('last_name') ?? $user->profile->last_name }}" />
+                            placeholder="You last name here" value="{{ old('last_name') ?? $user?->profile?->last_name }}" />
                         @error('last_name')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -52,7 +52,7 @@
                     <label for="phone" class="block mb-2 text-sm font-medium capitalize">Phone number</label>
                     <input type="phone" name="phone" id="phone"
                         class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        placeholder="Your phone number here" value="{{ old('phone') ?? $user->profile->phone }}" />
+                        placeholder="Your phone number here" value="{{ old('phone') ?? $user?->profile?->phone }}" />
                     @error('phone')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
@@ -73,7 +73,7 @@
                         <label for="birthday" class="block mb-2 text-sm font-medium capitalize">Birthday</label>
                         <input type="date" name="birthday" id="birthday"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="You birthday here" value="{{ old('birthday') ?? $user->profile->birthday }}" />
+                            placeholder="You birthday here" value="{{ old('birthday') ?? $user?->profile?->birthday }}" />
                         @error('birthday')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -83,8 +83,8 @@
                         <select name="gender" id="gender"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option value="">Select gender</option>
-                            <option value="male" {{ (old('gender') ?? $user->profile->gender) == 'male' ? 'selected' : '' }}>Male</option>
-                            <option value="female" {{ (old('gender') ?? $user->profile->gender) == 'female' ? 'selected' : '' }}>Female</option>
+                            <option value="male" {{ (old('gender') ?? $user?->profile?->gender) == 'male' ? 'selected' : '' }}>Male</option>
+                            <option value="female" {{ (old('gender') ?? $user?->profile?->gender) == 'female' ? 'selected' : '' }}>Female</option>
                         </select>
                         @error('gender')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
@@ -96,7 +96,7 @@
                     <label for="address" class="block mb-2 text-sm font-medium capitalize">Address</label>
                     <input type="address" name="address" id="address"
                         class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        placeholder="You address here" value="{{ old('address') ?? $user->profile->address }}" />
+                        placeholder="You address here" value="{{ old('address') ?? $user?->profile?->address }}" />
                     @error('address')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
@@ -105,7 +105,7 @@
                     <label for="address_2" class="block mb-2 text-sm font-medium capitalize">Address Line 2</label>
                     <input type="address_2" name="address_2" id="address_2"
                         class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                        placeholder="You address line 2 here" value="{{ old('address_2') ?? $user->profile->address_2 }}" />
+                        placeholder="You address line 2 here" value="{{ old('address_2') ?? $user?->profile?->address_2 }}" />
                     @error('address_2')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
@@ -116,7 +116,7 @@
                         <label for="city" class="block mb-2 text-sm font-medium capitalize">City</label>
                         <input type="city" name="city" id="city"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="You city here" value="{{ old('city') ?? $user->profile->city }}" />
+                            placeholder="You city here" value="{{ old('city') ?? $user?->profile?->city }}" />
                         @error('city')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -125,7 +125,7 @@
                         <label for="state" class="block mb-2 text-sm font-medium capitalize">State</label>
                         <input type="state" name="state" id="state"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="You state here" value="{{ old('state') ?? $user->profile->state }}" />
+                            placeholder="You state here" value="{{ old('state') ?? $user?->profile?->state }}" />
                         @error('state')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -137,7 +137,7 @@
                         <label for="zip" class="block mb-2 text-sm font-medium capitalize">Zip</label>
                         <input type="zip" name="zip" id="zip"
                             class="bg-gray-50 border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            placeholder="You zip here" value="{{ old('zip') ?? $user->profile->zip }}" />
+                            placeholder="You zip here" value="{{ old('zip') ?? $user?->profile?->zip }}" />
                         @error('zip')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
@@ -170,7 +170,7 @@
                                     "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
                                 ];
 
-                                $selectedCountry = old('country') ?? $user->profile->country ?? 'USA';
+                                $selectedCountry = old('country') ?? $user?->profile?->country ?? 'USA';
                             @endphp
                             @foreach($countries as $country)
                                 <option value="{{ $country }}" {{ $selectedCountry == $country ? 'selected' : '' }}>{{ $country }}</option>

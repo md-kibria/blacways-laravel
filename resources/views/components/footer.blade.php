@@ -4,8 +4,8 @@
         <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div>
                 <a href="{{ route('home') }}">
-                    @if ($info->logo)
-                        <img src="{{ asset('/storage/' . $info->logo) }}" alt="" class="h-[50px] w-auto">
+                    @if ($info->footer_logo)
+                        <img src="{{ asset('/storage/' . $info->footer_logo) }}" alt="" class="h-[50px] w-auto">
                     @else
                         <h1 class="text-2xl font-bold text-slate-100">Logo</h1>
                     @endif
@@ -97,6 +97,6 @@
             </div>
         </div>
 
-        <p class="text-xs text-gray-200">&copy; {{ date('Y') }} All rights reserved by BlacWays</p>
+        <p class="text-xs text-gray-200">&copy; {{ date('Y') }} All rights reserved – {{ $info->title }}</p>
     </div>
 </footer>

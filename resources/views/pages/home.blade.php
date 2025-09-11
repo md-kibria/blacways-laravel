@@ -139,11 +139,11 @@
     <!-- Mission Section -->
     <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-10 px-10 py-20">
         <img class="md:w-[300px] md:h-[400px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tr-[50px] sm:rounded-bl-[50px]"
-            src="{{ asset($mission->image ? '/storage/' . $mission->image : '/img/default.png') }}" alt="">
+            src="{{ asset($mission?->image ? '/storage/' . $mission?->image : '/img/default.png') }}" alt="">
         <div class="text-center md:text-left">
-            <h2 class="text-4xl font-bold mb-4 text-slate-600">{{ $mission->title }}</h2>
+            <h2 class="text-4xl font-bold mb-4 text-slate-600">{{ $mission?->title }}</h2>
             <p class="text-lg text-gray-500 mb-6 max-w-2xl">
-                {{ $mission->sub_title }}
+                {{ $mission?->sub_title }}
             </p>
 
             <a class="inline-flex items-center gap-2 rounded-sm border border-[#71A129] bg-gradient-to-r from-[#71A129] to-[#588B22] px-8 py-3 text-white hover:bg-none hover:text-[#588B22] focus:ring-3 focus:outline-hidden transition duration-300"
@@ -160,13 +160,13 @@
 
     <!-- Local Governments of Abia State -->
     <div class="bg-[#62BA70]">
-        <div class="container mx-auto text-white py-24 flex flex-col md:flex-row items-center justify-center">
+        <div class="container mx-auto text-white py-14 flex flex-col md:flex-row items-center justify-center">
 
-            <img src="{{ asset($localGovt->image ? '/storage/' . $localGovt->image : '/img/default.png') }}" class="h-[300px]" alt="">
+            <img src="{{ asset($localGovt?->image ? '/storage/' . $localGovt?->image : '/img/default.png') }}" class="h-[400px]" alt="">
 
             <div class="text-center md:text-left w-[80%] md:w-[60%] xl:w-[50%] ">
-                <h2 class="text-4xl font-bold mb-2 w-fit">{{ $localGovt->title }}</h2>
-                <p class="mb-8">{{ $localGovt->sub_title }}
+                <h2 class="text-4xl font-bold mb-2 w-fit">{{ $localGovt?->title }}</h2>
+                <p class="mb-8">{{ $localGovt?->sub_title }}
                 </p>
             </div>
         </div>
@@ -292,7 +292,7 @@
     </div>
 
     <!-- Contact Section -->
-    <div class="w-full min-h-screen flex items-center justify-center rounded-lg p-6 z-20 bg-green-100">
+    <div class="w-full flex items-center justify-center rounded-lg p-6 z-20 bg-green-100">
         <div class="bg-white md:w-3/4 lg:w-3/4 mx-auto rounded-lg shadow-lg p-6 text-gray-600">
             <div class="card-body py-5">
                 <p class="w-1/2 text-center mx-auto"></p>
@@ -334,18 +334,21 @@
                     </form>
 
                     <div class="w-full lg:w-1/2 px-5 pt-10 lg:pt-0 flex flex-col justify-center space-y-3">
-                        <div class="flex items-center space-x-4">
-                            <div class="flex items-center justify-center border border-gray-500 rounded-full h-9 w-9">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex items-center justify-center border border-gray-500 rounded-full h-9 w-9 mt-2">
                                 <ion-icon name="location-outline" class="text-2xl text-gray-500"></ion-icon>
                             </div>
                             <div class="flex-grow text-gray-600">
-                                <h3 class="text-xl font-semibold mb-0.5">Location</h3>
-                                <p class="border-b border-gray-300 text-sm pb-0.5">
-                                    {{ $info->address ? $info->address : '' }}</p>
+                                <h3 class="text-2xl font-semibold mb-0.5">Location</h3>
+                                <div class="border-b border-gray-300 text-lg pb-0.5">
+                                    <p class="leading-6">{{ $info->street_address ? $info->street_address : '' }}</p>
+                                    <p class="leading-6">{{ $info->suite ? $info->suite : '' }}</p>
+                                    <p class="leading-6">{{ $info->city ? $info->city : '' }} {{ $info->state ? ', ' . $info->state : '' }} {{ $info->zip ? ', ' . $info->zip : '' }}</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex items-center space-x-4">
+                        {{-- <div class="flex items-center space-x-4">
                             <div class="flex items-center justify-center border border-gray-500 rounded-full h-9 w-9">
                                 <ion-icon name="call-outline" class="text-2xl text-gray-500"></ion-icon>
                             </div>
@@ -354,9 +357,9 @@
                                 <a href="tel:{{ $info->phone ? $info->phone : '' }}"
                                     class="block border-b border-gray-300 text-sm pb-0.5 text-gray-600">{{ $info->phone ? $info->phone : '' }}</a>
                             </div>
-                        </div>
+                        </div> --}}
 
-                        <div class="flex items-center space-x-4">
+                        {{-- <div class="flex items-center space-x-4">
                             <div class="flex items-center justify-center border border-gray-500 rounded-full h-9 w-9">
                                 <ion-icon name="mail-outline" class="text-2xl text-gray-500"></ion-icon>
                             </div>
@@ -365,7 +368,7 @@
                                 <a href="mailto:{{ $info->email ? $info->email : '' }}"
                                     class="block border-b border-gray-300 text-sm pb-0.5 text-gray-600">{{ $info->email ? $info->email : '' }}</a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>

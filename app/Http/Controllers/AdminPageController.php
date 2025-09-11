@@ -187,6 +187,7 @@ class AdminPageController extends Controller
         $request->validate([
             'title' => 'nullable|string',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'footer_logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'favicon' => 'nullable|image|mimes:jpeg,png,jpg,gif,ico|max:2048',
             'description' => 'nullable|string',
             'email' => 'nullable|email',
@@ -195,6 +196,12 @@ class AdminPageController extends Controller
             'ad' => 'nullable|string',
             'ad_visibility' => 'nullable|string',
             'nl_vid' => 'nullable|string',
+            'street_address' => 'nullable|string',
+            'suite' => 'nullable|string',
+            'city' => 'nullable|string',
+            'state' => 'nullable|string',
+            'zip' => 'nullable|string',
+            'country' => 'nullable|string',
         ]);
 
         $siteInfo = Info::firstOrNew(['id' => 1]);
@@ -204,6 +211,13 @@ class AdminPageController extends Controller
                 Storage::delete($siteInfo->logo);
             }
             $siteInfo->logo = $request->file('logo')->store('logos', 'public');
+        }
+        
+        if ($request->hasFile('footer_logo')) {
+            if ($siteInfo->footer_logo) {
+                Storage::delete($siteInfo->footer_logo);
+            }
+            $siteInfo->footer_logo = $request->file('footer_logo')->store('footer_logos', 'public');
         }
 
         // Check and delete previous favicon if a new one is provided
@@ -222,6 +236,12 @@ class AdminPageController extends Controller
         $siteInfo->ad = $request->ad ?? $siteInfo->ad;
         $siteInfo->ad_visibility = $request->has('ad_visibility') ? true : false;
         $siteInfo->nl_vid = $request->nl_vid ?? $siteInfo->nl_vid;
+        $siteInfo->street_address = $request->street_address ?? $siteInfo->street_address;
+        $siteInfo->suite = $request->suite ?? $siteInfo->street_address;
+        $siteInfo->city = $request->city ?? $siteInfo->street_address;
+        $siteInfo->state = $request->state ?? $siteInfo->street_address;
+        $siteInfo->zip = $request->zip ?? $siteInfo->street_address;
+        $siteInfo->country = $request->country ?? $siteInfo->street_address;
 
         $siteInfo->save();
 
