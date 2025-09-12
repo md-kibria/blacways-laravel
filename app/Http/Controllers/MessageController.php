@@ -17,7 +17,8 @@ class MessageController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required',
-            'message' => 'required'
+            'message' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
         Message::create($request->all());

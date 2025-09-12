@@ -135,7 +135,7 @@
             </a>
         </div>
     </div>
-   
+
     <!-- Mission Section -->
     <div class="flex flex-col md:flex-row-reverse items-center justify-center gap-10 px-10 py-20">
         <img class="md:w-[300px] md:h-[400px] object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tr-[50px] sm:rounded-bl-[50px]"
@@ -162,7 +162,8 @@
     <div class="bg-[#62BA70]">
         <div class="container mx-auto text-white py-14 flex flex-col md:flex-row items-center justify-center">
 
-            <img src="{{ asset($localGovt?->image ? '/storage/' . $localGovt?->image : '/img/default.png') }}" class="h-[400px]" alt="">
+            <img src="{{ asset($localGovt?->image ? '/storage/' . $localGovt?->image : '/img/default.png') }}"
+                class="h-[400px]" alt="">
 
             <div class="text-center md:text-left w-[80%] md:w-[60%] xl:w-[50%] ">
                 <h2 class="text-4xl font-bold mb-2 w-fit">{{ $localGovt?->title }}</h2>
@@ -172,7 +173,7 @@
         </div>
     </div>
 
-     <!-- Events Section -->
+    <!-- Events Section -->
     @if (count($events) !== 0)
         <div class="px-5 md:px-15 xl:px-25 py-20 bg-green-100">
             <h2 class="text-4xl font-bold mb-2 text-slate-600 text-center">Latest Events</h2>
@@ -326,6 +327,15 @@
                                     <span class="text-red-500">{{ $message }}</span>
                                 @enderror
                             </div>
+
+                            {{-- reCAPTCHA --}}
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+
+                            @if ($errors->has('g-recaptcha-response'))
+                                <span class="text-red-500 text-sm">{{ $errors->first('g-recaptcha-response') }}</span>
+                            @endif
+
                             <div>
                                 <button type="submit"
                                     class="w-full border border-[#71A129] bg-gradient-to-r from-[#71A129] to-[#588B22] px-8 text-white hover:bg-none hover:text-[#588B22] py-2 rounded cursor-pointer transition">Submit</button>
@@ -343,7 +353,9 @@
                                 <div class="border-b border-gray-300 text-lg pb-0.5">
                                     <p class="leading-6">{{ $info->street_address ? $info->street_address : '' }}</p>
                                     <p class="leading-6">{{ $info->suite ? $info->suite : '' }}</p>
-                                    <p class="leading-6">{{ $info->city ? $info->city : '' }} {{ $info->state ? ', ' . $info->state : '' }} {{ $info->zip ? ', ' . $info->zip : '' }}</p>
+                                    <p class="leading-6">{{ $info->city ? $info->city : '' }}
+                                        {{ $info->state ? ', ' . $info->state : '' }}
+                                        {{ $info->zip ? ', ' . $info->zip : '' }}</p>
                                 </div>
                             </div>
                         </div>
