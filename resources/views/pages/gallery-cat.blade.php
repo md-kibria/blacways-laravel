@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', $page->name)
+@section('title', $cat->title)
 @section('description', strip_tags($page->description))
 
 @section('content')
@@ -8,8 +8,10 @@
         <div
             class="h-[450px] w-[calc(100%+100px)] bg-green-100 absolute -top-20 -left-10 -z-10 flex flex-col items-center justify-center rotate-[-5deg]">
         </div>
-        <h2 class="text-4xl font-bold mb-2 text-slate-600 text-center">{{ $page->name }}</h2>
-        <p class="text-slate-400 text-center w-[80%] md:w-[60%] xl:w-[50%] mx-auto mb-8">{{ $page->description }}</p>
+        <h2 class="text-4xl font-bold mb-2 text-slate-600 text-center">{{ $cat->title }}</h2>
+        <p class="text-slate-400 text-center w-[80%] md:w-[60%] xl:w-[50%] mx-auto mb-8">
+            {{-- {{ $page->description }} --}}
+        </p>
 
         @if (count($images) === 0)
             <div class="flex items-center justify-center w-full min-h-[40vh]">
@@ -34,9 +36,9 @@
         <!-- Method 2 -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             @foreach ($images as $image)
-                <a href="{{ route('gallery.cat', $image->id) }}" class="h-72 max-w-full overflow-hidden">
-                    <img class="h-full w-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-lg cursor-pointer" src="{{ asset('/storage/' . $image->thumbnail) }}" alt="">
-                </a>
+                 <div class="h-72 max-w-full overflow-hidden">
+                    <img class="h-full w-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-lg" src="{{ asset('/storage/' . $image->src) }}" alt="">
+                 </div>
             @endforeach
         </div>
 

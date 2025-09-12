@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Gallery;
+use App\Models\GalleryCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,7 +14,7 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $galleries = Gallery::orderBy('id', 'desc')->paginate(12);
+        $galleries = GalleryCategory::orderBy('id', 'desc')->paginate(10);
         return view('admin.gallery.index', compact('galleries'));
     }
 
@@ -22,7 +23,8 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        return view('admin.gallery.create');
+        $categories = GalleryCategory::all();
+        return view('admin.gallery.create', compact('categories'));
     }
 
     /**
@@ -32,6 +34,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'title' => 'nullable|string|max:255',
+            'category_id' => 'required|string|max:255',
             'src' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
 
@@ -50,7 +53,8 @@ class GalleryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $galleries = Gallery::orderBy('id', 'desc')->where('category_id', $id)->paginate(12);
+        return view('admin.gallery.show', compact('galleries'));
     }
 
     /**
@@ -79,6 +83,67 @@ class GalleryController extends Controller
         }
 
         $gallery->delete();
+
+        return redirect()->route('admin.gallery.index')->with('success', 'Deleted successfully');
+    }
+
+    public function createCategory()
+    {
+        return view('admin.gallery.create-category');
+    }
+
+    public function saveCategory(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'thumbnail' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        $data = $request->all();
+
+        if ($request->hasFile('thumbnail')) {
+            $data['thumbnail'] = $request->file('thumbnail')->store('gallery_category', 'public');
+        }
+
+        GalleryCategory::create($data);
+        return redirect()->route('admin.gallery.index')->with('success', 'Added successfully');
+    }
+
+    public function editCategory(GalleryCategory $cat)
+    {
+        return view('admin.gallery.edit-category', compact('cat'));
+    }
+
+    public function updateCategory(Request $request, GalleryCategory $cat)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        if ($request->hasFile('thumbnail')) {
+            if ($cat->thumbnail) {
+                Storage::disk('public')->delete($cat->thumbnail);
+            }
+            $cat->thumbnail = $request->file('thumbnail')->store('gallery_category', 'public');
+        }
+
+        $cat->title = $request->title ?? $cat->title;
+        $cat->description = $request->description ?? $cat->description;
+
+        $cat->save();
+
+        return redirect()->route('admin.gallery.index')->with('success', 'Updated successfully');
+    }
+
+    public function deleteCategory(GalleryCategory $cat)
+    {
+
+        if ($cat->thumbnail) {
+            Storage::disk('public')->delete($cat->thumbnail);
+        }
+
+        $cat->delete();
 
         return redirect()->route('admin.gallery.index')->with('success', 'Deleted successfully');
     }

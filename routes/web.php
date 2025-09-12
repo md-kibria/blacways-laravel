@@ -43,6 +43,7 @@ Route::delete('/news/comment/{comment}/destroy', [CommentController::class, 'des
 Route::get('/events', [PageController::class, 'events'])->name('events');
 Route::get('/events/{event}', [PageController::class, 'event'])->name('event');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
+Route::get('/gallery/{cat}', [PageController::class, 'galleryCategory'])->name('gallery.cat');
 
 Route::post('/message', [MessageController::class, 'store'])->name('message.store');
 Route::post('/newsletters', [NewsletterController::class, 'store'])->name('newsletters.store');
@@ -100,13 +101,19 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         ]);
 
     Route::resource('/gallery', GalleryController::class)
-        ->except(['show', 'edit', 'update'])
+        ->except(['edit', 'update'])
         ->names([
             'index' => 'admin.gallery.index',
+            'show' => 'admin.gallery.show',
             'create' => 'admin.gallery.create',
             'store' => 'admin.gallery.store',
             'destroy' => 'admin.gallery.destroy',
         ]);
+    Route::get('/gallery/category/create', [GalleryController::class, 'createCategory'])->name('admin.gallery.category.create');
+    Route::post('/gallery/category/store', [GalleryController::class, 'saveCategory'])->name('admin.gallery.category.store');
+    Route::get('/gallery/category/edit/{cat}', [GalleryController::class, 'editCategory'])->name('admin.gallery.category.edit');
+    Route::put('/gallery/category/update/{cat}', [GalleryController::class, 'updateCategory'])->name('admin.gallery.category.update');
+    Route::delete('/gallery/category/destroy/{cat}', [GalleryController::class, 'deleteCategory'])->name('admin.gallery.category.destroy');
 
     Route::resource('/executives', ExecutiveController::class)
         ->except(['show'])

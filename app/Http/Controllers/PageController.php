@@ -6,6 +6,7 @@ use App\Models\Council;
 use App\Models\Event;
 use App\Models\Executive;
 use App\Models\Gallery;
+use App\Models\GalleryCategory;
 use App\Models\HomepageContent;
 use App\Models\Info;
 use App\Models\News;
@@ -125,9 +126,18 @@ class PageController extends Controller
 
     public function gallery()
     {
-        $images = Gallery::orderBy('id', 'desc')->paginate(12);
+        // $images = Gallery::orderBy('id', 'desc')->paginate(12);
+        $images = GalleryCategory::orderBy('id', 'desc')->paginate(12);
         $page = Page::where('slug', 'gallery')->first();
 
         return view('pages.gallery', compact('images', 'page'));
+    }
+   
+    public function galleryCategory(GalleryCategory $cat)
+    {
+        $images = Gallery::where('category_id', $cat->id)->orderBy('id', 'desc')->paginate(12);
+        $page = Page::where('slug', 'gallery')->first();
+
+        return view('pages.gallery-cat', compact('images', 'page', 'cat'));
     }
 }
