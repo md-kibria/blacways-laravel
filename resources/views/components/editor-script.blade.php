@@ -16,7 +16,7 @@
         images_upload_handler: (blobInfo, progress) => new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.withCredentials = false;
-            xhr.open('POST', '/dashawards/admin/upload-image');
+            xhr.open('POST', '/admin/upload-image');
 
             // Add CSRF token header
             const csrfToken = document.querySelector('meta[name="csrf-token"]')?.content;

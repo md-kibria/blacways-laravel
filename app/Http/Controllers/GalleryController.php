@@ -14,8 +14,12 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        $galleries = GalleryCategory::orderBy('id', 'desc')->paginate(10);
-        return view('admin.gallery.index', compact('galleries'));
+        $galleries = GalleryCategory::where('title', '!=', 'uploads')->orderBy('id', 'desc')->paginate(10);
+        $uploads = GalleryCategory::where('title', 'uploads')->first();
+        if (!$uploads) {
+            $uploads = GalleryCategory::create(['title' => 'uploads', 'description' => 'Uploads from description', 'thumbnail' => 'default.png']);
+        }
+        return view('admin.gallery.index', compact('galleries', 'uploads'));
     }
 
     /**
@@ -146,5 +150,18 @@ class GalleryController extends Controller
         $cat->delete();
 
         return redirect()->route('admin.gallery.index')->with('success', 'Deleted successfully');
+    }
+
+    public function upload(Request $request)
+    {   
+        if ($request->hasFile('file')) {
+            $path = $request->file('file')->store('uploads', 'public');
+            $cat_id = GalleryCategory::where('title', 'uploads')->first()->id;
+            // Save on database
+            Gallery::create(['category_id' => $cat_id, 'src' => $path]);
+
+            return response()->json(['location' => asset('storage/' . $path)], 200);
+        }
+        return response()->json(['error' => 'Upload failed'], 400);
     }
 }

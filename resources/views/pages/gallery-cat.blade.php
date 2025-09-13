@@ -36,9 +36,12 @@
         <!-- Method 2 -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             @foreach ($images as $image)
-                 <div class="h-72 max-w-full overflow-hidden">
-                    <img class="h-full w-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-lg" src="{{ asset('/storage/' . $image->src) }}" alt="">
-                 </div>
+                <a href="{{ asset('/storage/' . $image->src) }}" class="max-w-full overflow-hidden rounded-lg cursor-pointer">
+                    <div class="aspect-[2/3]">
+                        <img class="h-full w-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-lg"
+                            src="{{ asset('/storage/' . $image->src) }}" alt="">
+                    </div>
+                </a>
             @endforeach
         </div>
 

@@ -19,6 +19,11 @@
     border: 1px solid #e2e8f0;
 }
 
+.no-tailwind img {
+    max-width: 100%;
+    height: auto;
+}
+
 .img-hover {
     filter: grayscale(0);
 }

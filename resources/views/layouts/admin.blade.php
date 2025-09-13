@@ -298,7 +298,7 @@
                     <li x-data="{ open: false }" @click="open = !open" class="cursor-pointer">
                         <a class="my-1 py-2 hover:bg-slate-500 rounded-md p-2 flex items-center gap-4 @if (Route::currentRouteName() == 'admin.pages' || Route::currentRouteName() == 'admin.pages') bg-slate-600 text-green-300 @endif">
                             <p class="text-2xl"><ion-icon class="my-auto block" name="document-text-outline"></ion-icon></p>
-                            <p>Another Pages</p>
+                            <p>Other Pages</p>
                         </a>
 
                         <ul x-show="open" x-transition class="pl-4">

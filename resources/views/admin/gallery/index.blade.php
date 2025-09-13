@@ -39,6 +39,26 @@
                         <td colspan="6" class="border border-slate-700 p-3 text-center">No items found.</td>
                     </tr>
                 @endif
+                <tr class="even:bg-slate-600">
+                    <td class="border border-slate-700 p-3">#</td>
+                    {{-- <td class="border border-slate-700 p-3">
+                        <img class="h-10 rounded-md mx-auto" src="{{ asset('/storage/' . $uploads->thumbnail) }}" alt="">
+                    </td> --}}
+                    <td colspan="3" class="border border-slate-700 p-3">Uploads From Description</td>
+                    {{-- <td class="border border-slate-700 p-3">
+                        {{ \Carbon\Carbon::parse($uploads->created_at)->toFormattedDateString() }}</td> --}}
+                    <td class="border border-slate-700 p-3 ">
+                        <div class="flex items-center justify-center">
+                            <span
+                                class="inline-flex divide-x divide-gray-300 overflow-hidden rounded border border-gray-300 bg-white shadow-sm">
+                                <a href="{{ route('admin.gallery.show', $uploads->id) }}"
+                                    class="bg-green-500 hover:bg-green-400 cursor-pointer px-3 py-1.5 text-sm font-medium text-gray-100 transition-colors hover:text-gray-900 focus:relative">
+                                    View Description Uploads
+                                </a>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
                 @foreach ($galleries as $item)
                     <tr class="even:bg-slate-600">
                         <td class="border border-slate-700 p-3">{{ $item->id }}</td>

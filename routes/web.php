@@ -115,6 +115,8 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::put('/gallery/category/update/{cat}', [GalleryController::class, 'updateCategory'])->name('admin.gallery.category.update');
     Route::delete('/gallery/category/destroy/{cat}', [GalleryController::class, 'deleteCategory'])->name('admin.gallery.category.destroy');
 
+    Route::post('/upload-image', [GalleryController::class, 'upload'])->name('admin.gallery.upload');
+
     Route::resource('/executives', ExecutiveController::class)
         ->except(['show'])
         ->names([

@@ -39,7 +39,7 @@
         </span>
     </a> --}}
 
-    <a href="{{ route('donation') }}" class="fixed -left-[52px] top-30 translate-y-50 -rotate-90 flex items-center justify-center text-xl h-[40px] w-[140px] bg-gradient-to-r from-[#71A129] to-[#588B22] font-bold text-white uppercase rounded-b-xl z-40">
+    <a href="{{ route('donation') }}" class="fixed -left-[52px] top-30 translate-y-50 -rotate-90 flex items-center justify-center text-xl h-[40px] w-[140px] bg-gradient-to-r from-yellow-500 to-yellow-300 font-bold text-white uppercase rounded-b-xl z-40">
         Donation
     </a>
 
