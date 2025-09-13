@@ -127,7 +127,7 @@ class PageController extends Controller
     public function gallery()
     {
         // $images = Gallery::orderBy('id', 'desc')->paginate(12);
-        $images = GalleryCategory::orderBy('id', 'desc')->paginate(12);
+        $images = GalleryCategory::where('title', '!=', 'uploads')->orderBy('id', 'desc')->paginate(12);
         $page = Page::where('slug', 'gallery')->first();
 
         return view('pages.gallery', compact('images', 'page'));
