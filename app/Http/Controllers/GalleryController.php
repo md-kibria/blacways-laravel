@@ -27,7 +27,7 @@ class GalleryController extends Controller
      */
     public function create()
     {
-        $categories = GalleryCategory::where('title', '!=', 'uploads')->all();
+        $categories = GalleryCategory::where('title', '!=', 'uploads')->get();
         return view('admin.gallery.create', compact('categories'));
     }
 

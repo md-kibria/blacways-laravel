@@ -176,7 +176,7 @@
     <!-- Events Section -->
     @if (count($events) !== 0)
         <div class="px-5 md:px-15 xl:px-25 py-20 bg-green-100">
-            <h2 class="text-4xl font-bold mb-2 text-slate-600 text-center">Latest Events</h2>
+            <h2 class="text-4xl font-bold mb-2 text-slate-600 text-center">Upcoming Events</h2>
             <p class="text-slate-400 text-center w-[80%] md:w-[60%] xl:w-[50%] mx-auto mb-8">{{ $events_desc }}</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-3">
 
@@ -271,10 +271,10 @@
     @endif
 
     <!-- Donation Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 items-center justify-center px-5 sm:px-25 py-5">
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-2 items-center justify-center px-5 sm:px-25 py-5">
         <div class="flex items-center justify-center">
-            <img class="h-[300px] md:h-[500px] grayscale  transition duration-300" id="donate-light" src="/img/light.png"
-                alt="">
+            {{-- <img class="h-[300px] md:h-[500px] grayscale transition duration-300" id="donate-light" src="{{ asset($donation->image ? '/storage/' . $donation->image : '/img/light.png') }}" alt=""> --}}
+            <img class="md:w-[500px] md:h-[400px] grayscale transition duration-300 object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tl-[50px] sm:rounded-br-[50px]" id="donate-light" src="{{ asset($donation->image ? '/storage/' . $donation->image : '/img/light.png') }}" alt="">
         </div>
         <div class="flex flex-col">
             <h2

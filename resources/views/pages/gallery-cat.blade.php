@@ -36,12 +36,36 @@
         <!-- Method 2 -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             @foreach ($images as $image)
-                <a href="{{ asset('/storage/' . $image->src) }}" class="max-w-full overflow-hidden rounded-lg cursor-pointer">
+                <div x-data="{ open: false }" class="max-w-full h-72 overflow-hidden rounded-lg cursor-pointer">
                     <div class="aspect-[2/3]">
-                        <img class="h-full w-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-lg"
-                            src="{{ asset('/storage/' . $image->src) }}" alt="">
+                        <img 
+                            class="h-full w-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-lg"
+                            src="{{ asset('/storage/' . $image->src) }}" 
+                            alt=""
+                            @click="open = true"
+                        >
                     </div>
-                </a>
+                    <!-- Popup Modal -->
+                    <div 
+                        x-show="open" 
+                        x-transition 
+                        class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 max-h-screen max-w-screen"
+                        @click.away="open = false"
+                        style="display: none;"
+                    >
+                        <div class="bg-white rounded-lg p-4 max-w-screen sm:max-w-2xl w-full relative">
+                            <button 
+                                class="absolute top-2 right-2 text-gray-700 hover:text-red-500 text-4xl cursor-pointer"
+                                @click="open = false"
+                            >&times;</button>
+                            <img 
+                                src="{{ asset('/storage/' . $image->src) }}" 
+                                alt="" 
+                                class="max-h-screen mx-auto h-auto rounded-lg"
+                            >
+                        </div>
+                    </div>
+                </div>
             @endforeach
         </div>
 

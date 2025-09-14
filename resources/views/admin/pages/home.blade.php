@@ -126,7 +126,7 @@
                         @enderror
                     </div>
 
-                    @if ($item->section !== 'donation')
+                    
                         <div class="flex flex-col my-1">
                             <label for="image" class="font-light my-2 text-slate-100">Image</label>
                             <input
@@ -137,12 +137,12 @@
                                 <span class="text-light text-red-300">{{ $message }}</span>
                             @enderror
                         </div>
-                    @endif
+                    
 
                     <input name="section" type="hidden" value="{{ $item->section }}">
 
                 </div>
-                @if ($item->section !== 'donation')
+                
                     <div class="felx">
                         <label for="title" class="block font-light my-2 text-slate-100">Preview Image</label>
                         <div class="border border-slate-700 rounded-lg p-2 flex flex-col gap-2">
@@ -157,7 +157,7 @@
 
                         </div>
                     </div>
-                @endif
+                
             </div>
         </form>
         {{-- Single Section --}}

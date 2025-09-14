@@ -59,4 +59,8 @@
         </form>
     </div>
 
+    @if ($page->slug == 'features_1' || $page->slug == 'features_2' || $page->slug == 'features_3')
+        <x-editor-script id="description" />
+    @endif
+
 @endsection

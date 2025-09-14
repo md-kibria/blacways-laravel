@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'sub_title' => 'BlacWays Member Portal – Laravel-Based Website Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate fugiat quo aperiam nostrum iste odio enim illum repudiandae nemo modi.',
             'url' => '/events'
         ]);
-        
+
         HomepageContent::factory()->create([
             'section' => 'features_1',
             'title' => 'Track your status',
@@ -58,16 +58,16 @@ class DatabaseSeeder extends Seeder
             'section' => 'about',
             'sub_title' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus repudiandae inventore tenetur quis in, autem quod harum, debitis qui cum voluptas praesentium commodi quas quaerat suscipit dignissimos iusto, pariatur delectus. Vel beatae recusandae praesentium accusamus odio ipsam! Nobis, reiciendis eveniet expedita quia cumque, doloremque natus, accusamus corporis odit aut a.'
         ]);
-     
+
         HomepageContent::factory()->create([
             'section' => 'donation',
             'sub_title' => 'To continue our work, we need your donation. Would you want to participate with us?'
         ]);
-        
+
         HomepageContent::factory()->create([
             'section' => 'mission',
         ]);
-        
+
         HomepageContent::factory()->create([
             'section' => 'local governments',
         ]);
@@ -77,7 +77,7 @@ class DatabaseSeeder extends Seeder
             'slug' => 'about',
             'content' => 'This is about page'
         ]);
-        
+
         Page::factory()->create([
             'name' => 'Contact Us',
             'slug' => 'contact',
@@ -89,17 +89,37 @@ class DatabaseSeeder extends Seeder
             'slug' => 'events',
             'description' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus provident est tempora quod eaque unde numquam, adipisci dignissimos consequatur temporibus'
         ]);
-        
+
         Page::factory()->create([
             'name' => 'Latest News',
             'slug' => 'news',
             'description' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus provident est tempora quod eaque unde numquam, adipisci dignissimos consequatur temporibus'
         ]);
-        
+
         Page::factory()->create([
             'name' => 'Photo Gallery',
             'slug' => 'gallery',
             'description' => 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus provident est tempora quod eaque unde numquam, adipisci dignissimos consequatur temporibus'
+        ]);
+
+        Page::factory()->create([
+            'slug' => 'mission',
+        ]);
+        Page::factory()->create([
+            'slug' => 'executives',
+        ]);
+        Page::factory()->create([
+            'slug' => 'council',
+        ]);
+
+        Page::factory()->create([
+            'slug' => 'features_1',
+        ]);
+        Page::factory()->create([
+            'slug' => 'features_2',
+        ]);
+        Page::factory()->create([
+            'slug' => 'features_3',
         ]);
 
         Info::factory()->create([
@@ -110,7 +130,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'facebook',
             'url' => 'https://facebook.com/username'
         ]);
-        
+
         Media::factory()->create([
             'name' => 'twitter',
             'url' => 'https://twitter.com/username'

@@ -37,11 +37,12 @@
             {{-- <a href="{{ route('gallery.cat', $image->id) }}" class="h-72 max-w-full overflow-hidden">
                     <img class="h-full w-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-lg cursor-pointer" src="{{ asset('/storage/' . $image->thumbnail) }}" alt="">
                 </a> --}}
-                <a href="{{ route('gallery.cat', $image->id) }}" class="max-w-full overflow-hidden rounded-lg cursor-pointer">
+                <a href="{{ route('gallery.cat', $image->id) }}" class="max-w-full h-72 overflow-hidden rounded-lg cursor-pointer relative group">
                     <div class="aspect-[2/3]">
                         <img class="h-full w-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-lg"
                             src="{{ asset('/storage/' . $image->thumbnail) }}" alt="">
                     </div>
+                    <h2 class="absolute z-10 bottom-5 left-5 text-2xl text-white font-bold transition-all duration-300 opacity-50 group-hover:bottom-10 group-hover:opacity-100 group-hover:underline">{{ $image->title }}</h2>
                 </a>
             @endforeach
         </div>
