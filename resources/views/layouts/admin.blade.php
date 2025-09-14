@@ -516,7 +516,7 @@
 
     <footer class="container mx-auto mt-24 mb-10 px-0 sm:px-24 lg:px-28">
 
-        <p class="text-left">&copy; {{ date('Y') }} All right reserved by BlacWays Member Portal</p>
+        <p class="text-left">&copy; {{ date('Y') }} All rights reserved.</p>
     </footer>
 
     <x-flash-message />
