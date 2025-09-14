@@ -1,4 +1,4 @@
-# CommunitySite
+# Community Website
 
 
 ### 1. Get the Project
