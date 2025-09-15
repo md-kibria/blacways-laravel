@@ -35,7 +35,7 @@
                 @foreach ($admins as $item)
                     <tr class="even:bg-slate-600">
                         <td class="border border-slate-700 p-3">{{ $item->id }}</td>
-                        <td class="border border-slate-700 p-3">{{ $item->name }}</td>
+                        <td class="border border-slate-700 p-3">{{ $item?->profile?->first_name }} {{ $item?->profile?->last_name }}</td>
                         <td class="border border-slate-700 p-3">{{ $item->email }}</td>
                         <td class="border border-slate-700 p-3">
                             @if ($item->status === 'active')

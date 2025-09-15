@@ -41,7 +41,7 @@
                             </p>
                         @endif
                     </div>
-                    <h5 class="mb-1 text-xl font-medium text-white">{{ $user->name }}</h5>
+                    <h5 class="mb-1 text-xl font-medium text-white">{{ $user?->profile?->first_name }} {{ $user?->profile?->last_name }}</h5>
                     <span class="text-sm text-gray-400">{{ $user->email }}</span>
                     <span class="text-sm text-gray-400">({{ $user->role }})</span>
                     <div class="flex mt-4 md:mt-6">

@@ -17,7 +17,7 @@
             <img src="{{ asset('/storage/'.$user->image) }}" alt="" class="w-32 h-32 rounded-full mx-auto mb-4">
             @endif
             
-            <label for="name" class="block font-light my-2 text-slate-100">
+            <label for="name" class="block font-light my-2 text-slate-100" style="display: none;">
                 <span class="text-sm font-medium text-gray-200"> Name </span>
 
                 <input type="text" id="name"
