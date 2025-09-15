@@ -40,7 +40,8 @@ Route::post('/news/{news}/comment', [CommentController::class, 'store'])->name('
 Route::put('/news/comment/{comment}/update', [CommentController::class, 'update'])->name('news.comment.update');
 Route::delete('/news/comment/{comment}/destroy', [CommentController::class, 'destroy'])->name('news.comment.destroy');
 
-Route::get('/events', [PageController::class, 'events'])->name('events');
+Route::get('/events-calendar', [PageController::class, 'events'])->name('events');
+Route::get('/events', [PageController::class, 'eventsList'])->name('events.list');
 Route::get('/events/{event}', [PageController::class, 'event'])->name('event');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/gallery/{cat}', [PageController::class, 'galleryCategory'])->name('gallery.cat');

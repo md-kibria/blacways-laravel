@@ -119,6 +119,14 @@ class PageController extends Controller
         return view('pages.events', compact('events', 'page'));
     }
 
+    public function eventsList()
+    {
+        $events = Event::orderBy('start_time', 'asc')->paginate(12);
+        $page = Page::where('slug', 'events')->first();
+
+        return view('pages.events-list', compact('events', 'page'));
+    }
+
     public function event(Event $event)
     {
         return view('pages.event', compact('event'));

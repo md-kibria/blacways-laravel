@@ -34,9 +34,9 @@
         </div> --}}
 
         <!-- Method 2 -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             @foreach ($images as $image)
-                <div x-data="{ open: false }" class="max-w-full h-72 overflow-hidden rounded-lg cursor-pointer">
+                <div x-data="{ open: false }" class="max-w-full overflow-hidden rounded-lg cursor-pointer">
                     <div class="aspect-[2/3]">
                         <img 
                             class="h-full w-full object-cover transform transition-transform duration-500 hover:scale-110 rounded-lg"

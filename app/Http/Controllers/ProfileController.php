@@ -31,6 +31,7 @@ class ProfileController extends Controller
             'phone' => 'nullable|string|max:255',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'birthday' => 'nullable|string|max:255',
+            'birthmonth' => 'nullable|string|max:255',
             'gender' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:255',
             'address_2' => 'nullable|string|max:255',
@@ -42,7 +43,7 @@ class ProfileController extends Controller
             'password' => 'nullable|string|min:8',
         ]);
 
-        $data = $request->only(['first_name', 'last_name', 'phone', 'birthday', 'image', 'gender', 'address', 'address_2', 'city', 'state', 'zip', 'country']);
+        $data = $request->only(['first_name', 'last_name', 'phone', 'birthday', 'birthmonth', 'image', 'gender', 'address', 'address_2', 'city', 'state', 'zip', 'country']);
 
         $profile = $user->profile ?? $user->profile()->create();
 

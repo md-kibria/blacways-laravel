@@ -274,7 +274,7 @@
     <div class="grid grid-cols-1 gap-2 md:grid-cols-2 items-center justify-center px-5 sm:px-25 py-5">
         <div class="flex items-center justify-center">
             {{-- <img class="h-[300px] md:h-[500px] grayscale transition duration-300" id="donate-light" src="{{ asset($donation->image ? '/storage/' . $donation->image : '/img/light.png') }}" alt=""> --}}
-            <img class="md:w-[500px] md:h-[400px] grayscale transition duration-300 object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tl-[50px] sm:rounded-br-[50px]" id="donate-light" src="{{ asset($donation->image ? '/storage/' . $donation->image : '/img/light.png') }}" alt="">
+            <img class="md:w-[500px] md:h-[400px] transition duration-300 object-cover rounded-[20px] sm:rounded-[10px] sm:rounded-tl-[50px] sm:rounded-br-[50px]" id="donate-light" src="{{ asset($donation->image ? '/storage/' . $donation->image : '/img/light.png') }}" alt="">
         </div>
         <div class="flex flex-col">
             <h2

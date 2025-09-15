@@ -12,6 +12,7 @@ class Profile extends Model
         'last_name',
         'image',
         'birthday',
+        'birthmonth',
         'phone',
         'gender',
         'address',

@@ -112,7 +112,7 @@
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">Birthday: </span>
-                        <span class="text-white">{{ $user?->profile?->birthday }}</span>
+                        <span class="text-white">{{ $user?->profile?->birthday }} {{ $user?->profile?->birthmonth }}</span>
                     </li>
                     <li class="flex items-center">
                         <span class="font-semibold text-gray-400 w-[90px]">Gender: </span>
