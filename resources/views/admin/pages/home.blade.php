@@ -10,11 +10,10 @@
             <h2 class="text-3xl capitalize">Sliders</h2>
             <div>
 
-                <a
-                    class="rounded shadow-sm sm:text-sm border border-gray-600 bg-blue-300 hover:bg-blue-400 text-slate-900 hover:text-white cursor-pointer py-2 px-3"
+                <a class="rounded shadow-sm sm:text-sm border border-gray-600 bg-blue-300 hover:bg-blue-400 text-slate-900 hover:text-white cursor-pointer py-2 px-3"
                     href="{{ route('admin.home.sliders') }}">
                     Update
-            </a>
+                </a>
             </div>
         </div>
 
@@ -126,38 +125,51 @@
                         @enderror
                     </div>
 
-                    
-                        <div class="flex flex-col my-1">
-                            <label for="image" class="font-light my-2 text-slate-100">Image</label>
-                            <input
-                                class="p-2 px-3 rounded-md bg-transparent ring-1 @error('image') ring-red-300 @else ring-slate-600 @enderror"
-                                type="file" id="image" name="image" placeholder="Your image here" value="">
 
-                            @error('image')
+                    <div class="flex flex-col my-1">
+                        <label for="image" class="font-light my-2 text-slate-100">Image</label>
+                        <input
+                            class="p-2 px-3 rounded-md bg-transparent ring-1 @error('image') ring-red-300 @else ring-slate-600 @enderror"
+                            type="file" id="image" name="image" placeholder="Your image here" value="">
+
+                        @error('image')
+                            <span class="text-light text-red-300">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    @if ($item->section !== 'features_1' || $item->section !== 'features_2' || $item->section !== 'features_3')
+                        <div class="flex flex-col my-1">
+                            <label for="image_helper" class="font-light my-2 text-slate-100">Background Image</label>
+                            <input
+                                class="p-2 px-3 rounded-md bg-transparent ring-1 @error('image_helper') ring-red-300 @else ring-slate-600 @enderror"
+                                type="file" id="image_helper" name="image_helper" placeholder="Your background image here" value="">
+
+                            @error('image_helper')
                                 <span class="text-light text-red-300">{{ $message }}</span>
                             @enderror
                         </div>
-                    
+                    @endif
+
 
                     <input name="section" type="hidden" value="{{ $item->section }}">
 
                 </div>
-                
-                    <div class="felx">
-                        <label for="title" class="block font-light my-2 text-slate-100">Preview Image</label>
-                        <div class="border border-slate-700 rounded-lg p-2 flex flex-col gap-2">
-                            @if ($item->image)
-                                <img class="ring-1 max-h-24 w-auto inline rounded-lg ring-slate-600"
-                                    src="{{ asset('/storage/' . $item->image) }}" />
-                            @endif
-                            @if ($item->image_helper)
-                                <img class="ring-1 max-h-24 w-auto inline rounded-lg ring-slate-600"
-                                    src="{{ asset('/storage/' . $item->image_helper) }}" />
-                            @endif
 
-                        </div>
+                <div class="felx">
+                    <label for="title" class="block font-light my-2 text-slate-100">Preview Image</label>
+                    <div class="border border-slate-700 rounded-lg p-2 flex flex-col gap-2">
+                        @if ($item->image)
+                            <img class="ring-1 max-h-24 w-auto inline rounded-lg ring-slate-600"
+                                src="{{ asset('/storage/' . $item->image) }}" />
+                        @endif
+                        @if ($item->image_helper)
+                            <img class="ring-1 max-h-24 w-auto inline rounded-lg ring-slate-600"
+                                src="{{ asset('/storage/' . $item->image_helper) }}" />
+                        @endif
+
                     </div>
-                
+                </div>
+
             </div>
         </form>
         {{-- Single Section --}}

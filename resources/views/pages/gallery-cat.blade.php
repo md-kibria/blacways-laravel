@@ -34,7 +34,7 @@
         </div> --}}
 
         <!-- Method 2 -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
             @foreach ($images as $image)
                 <div x-data="{ open: false }" class="max-w-full overflow-hidden rounded-lg cursor-pointer">
                     <div class="aspect-[2/3]">

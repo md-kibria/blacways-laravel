@@ -86,9 +86,9 @@
     {{-- <div class="flex flex-col md:flex-row px-10 lg:px-20 xl:px-30 gap-5 py-30"> --}}
     <div class="grid grid-cols-1 md:grid-cols-3 px-10 lg:px-20 xl:px-60 gap-5 py-30">
 
-        <x-feature id="features_1" :image="$features_1->image" :title="$features_1->title" :sub_title="$features_1->sub_title" />
-        <x-feature id="features_2" :image="$features_2->image" :title="$features_2->title" :sub_title="$features_2->sub_title" />
-        <x-feature id="features_3" :image="$features_3->image" :title="$features_3->title" :sub_title="$features_3->sub_title" />
+        <x-feature id="features_1" :image="$features_1->image" :bg="$features_1->image_helper" :title="$features_1->title" :sub_title="$features_1->sub_title" />
+        <x-feature id="features_2" :image="$features_2->image" :bg="$features_2->image_helper" :title="$features_2->title" :sub_title="$features_2->sub_title" />
+        <x-feature id="features_3" :image="$features_3->image" :bg="$features_3->image_helper" :title="$features_3->title" :sub_title="$features_3->sub_title" />
 
         {{-- <div class="flex flex-col shadow-lg hover:shadow-xl cursor-pointer p-4 rounded-md bg-blue-50">
             <img width="50" height="50"
