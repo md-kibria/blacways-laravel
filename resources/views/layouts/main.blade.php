@@ -20,7 +20,7 @@
         <x-navbar />
     </header>
 
-    <main class="overflow-x-hidden">
+    <main class="overflow-x-hidden relative">
         @yield('content')
     </main>
 

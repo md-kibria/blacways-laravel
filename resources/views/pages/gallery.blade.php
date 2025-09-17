@@ -4,7 +4,7 @@
 @section('description', strip_tags($page->description))
 
 @section('content')
-    <div class="px-5 md:px-25 py-15">
+    <div class="px-5 md:px-25 py-15 relative">
         <div
             class="h-[450px] w-[calc(100%+100px)] bg-green-100 absolute -top-20 -left-10 -z-10 flex flex-col items-center justify-center rotate-[-5deg]">
         </div>

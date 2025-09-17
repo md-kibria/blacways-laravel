@@ -13,7 +13,7 @@
             style="background: conic-gradient(from 224.42deg at 50% 50%, #150C2F -45.35deg, rgba(81, 55, 108, 0.954484) 22.93deg, #F1C180 150.84deg, #1F1F1F 159.84deg, #EEB36C 209.65deg, #084587 271.22deg, #150C2F 314.65deg, rgba(81, 55, 108, 0.954484) 382.93deg); filter: blur(70px); z-index: -1;">
         </div> --}}
 
-        <div class="mt-10 max-w-4xl mx-auto bg-white rounded shadow-md overflow-hidden">
+        <div class="mt-10 w-full max-w-4xl mx-auto bg-white rounded shadow-md overflow-hidden">
             {{-- <div class="w-full h-44 bg-amber-400">asdf --}}
             <img src="{{ asset('/storage/' . $news->thumbnail) }}" alt="{{ $news->title }}" class="w-full h-96 object-cover">
             {{-- </div> --}}
@@ -71,7 +71,7 @@
                                     @csrf
                                     @method('PUT')
                                     <textarea name="comment" id="" cols="30" rows="3"
-                                        class="border-t border-l border-b rounded-l-md @error('comment') border-red-300 @else border-gray-400 @enderror p-2 grow outline-0"
+                                        class="border-t border-l border-b rounded-l-md @error('comment') border-red-300 @else border-gray-400 @enderror p-2 grow outline-0 w-full"
                                         placeholder="Write your comment here">{{ $comment->comment }}</textarea>
                                     <input type="submit" value="Update"
                                         class="bg-gradient-to-r from-[#71A129] to-[#588B22] border-t border-r border-b @error('comment') border-red-300 @else border-gray-400 @enderror text-white rounded-r-md px-4 cursor-pointer">
@@ -87,7 +87,7 @@
                             @csrf
                             @method('POST')
                             <textarea name="comment" id="" cols="30" rows="1"
-                                class="border-t border-l border-b rounded-l-md @error('comment') border-red-300 @else border-gray-400 @enderror p-2 grow outline-0"
+                                class="border-t border-l border-b rounded-l-md @error('comment') border-red-300 @else border-gray-400 @enderror p-2 grow outline-0 w-full"
                                 placeholder="Write your comment here"></textarea>
                             <input type="submit" value="Submit"
                                 class="bg-gradient-to-r from-[#71A129] to-[#588B22] border-t border-r border-b @error('comment') border-red-300 @else border-gray-400 @enderror text-white rounded-r-md px-4 cursor-pointer">

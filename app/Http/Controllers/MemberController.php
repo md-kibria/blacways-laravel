@@ -10,7 +10,8 @@ class MemberController extends Controller
 
     public function index()
     {
-        $members = User::where('role', 'member')->orderBy('id', 'desc')->paginate(10);
+        // $members = User::where('role', 'member')->orderBy('id', 'desc')->paginate(10);
+        $members = User::orderBy('id', 'desc')->paginate(10);
 
         return view('admin.members.index', compact('members'));
     }

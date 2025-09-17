@@ -252,7 +252,7 @@
                     <ion-icon name="close-circle-outline"></ion-icon>
                 </p>
 
-                <h2 class="text-2xl py-2 border-b border-slate-400 mb-4 pb-3">Welcome, {{ Auth::user()->name }}!</h2>
+                <h2 class="text-2xl py-2 border-b border-slate-400 mb-4 pb-3">Welcome, {{ Auth::user()->profile['first_name'] }}!</h2>
 
                 <ul>
                     <li>
