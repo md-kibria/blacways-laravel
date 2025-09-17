@@ -26,7 +26,7 @@
                 </ul>
             </div>
 
-            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
+            <div class="grid grid-cols-2 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
                 <div>
                     <p class="text-xl font-medium text-gray-100">Content</p>
 
@@ -73,6 +73,10 @@
 
                         <li>
                             <a href="{{ route('forum') }}" class="text-gray-400 transition hover:opacity-75 hover:pl-2 duration-200"> <span class="text-white text-2xl">»</span> Forum </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ route('events.list') }}" class="text-gray-400 transition hover:opacity-75 hover:pl-2 duration-200"> <span class="text-white text-2xl">»</span> Events List </a>
                         </li>
                     </ul>
                 </div>
