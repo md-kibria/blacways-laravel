@@ -80,7 +80,7 @@ class AdminController extends Controller
     public function updateProfile(User $user, Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            // 'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
